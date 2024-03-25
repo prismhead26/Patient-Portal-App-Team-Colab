@@ -10,6 +10,9 @@
 body {
   background: #525353;
 }
+h2 { 
+  margin-top:10%; 
+}
 .nav {
   position: fixed;
   top: 0;
@@ -48,6 +51,7 @@ a {
 }
 #calendar {
   max-height: 80vh;
+  margin-top:10%; 
 }
 
 /* responsive */
