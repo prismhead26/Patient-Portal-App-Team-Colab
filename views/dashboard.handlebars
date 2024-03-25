@@ -1,15 +1,17 @@
-<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
 
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
+  </head>
   <body>
-    <nav class="nav">
-      <i class="uil uil-bars navOpenBtn"></i>
-      <a class="logo">TrackNHeal</a>
-
-      <ul class="nav-links">
-        <i class="uil uil-times navCloseBtn"></i>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/profile">Profile</a></li>
-      </ul>
-    </nav>
+    <div id='calendar'></div>
   </body>

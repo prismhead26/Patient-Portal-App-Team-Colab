@@ -46,6 +46,9 @@ a {
 .nav .navCloseBtn {
   display: none;
 }
+#calendar {
+  max-height: 80vh;
+}
 
 /* responsive */
 @media screen and (max-width: 1160px) {
