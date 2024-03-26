@@ -123,10 +123,10 @@ Licensed under the The MIT License license.
 Aiden Wahed : [GitHub](https://github.com/prismhead26)
 <br>
 
-Elijah Matar : [GitHub](https://github.com/)
+Elijah Matar : [GitHub](https://github.com/emmatar)
 <br>
 
-Elijah Matar : [GitHub](https://github.com/)
+Courtney Hook : [GitHub](https://github.com/courtneyhook)
 
 
-© 2024 Aiden Wahed, Elijah Matar, Elijah Matar . All Rights Reserved.
+© 2024 Aiden Wahed, Elijah Matar, Courtney Hook . All Rights Reserved.
