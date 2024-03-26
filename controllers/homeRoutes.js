@@ -17,9 +17,11 @@ router.get("/login", async (req, res) => {
   res.render("/login");
 });
 
-router.get("/profile", async (req, res) => {});
+router.get("/dashboard", async (req, res) => {
+    
+});
 
-router.get("/patients", withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const patientData = await Patient.findAll({
       attributes: ["name"],
