@@ -1,6 +1,10 @@
-const router = require('express').Router()
-const dashboardRoutes = require('./dashboard-routes')
+const router = require('express').Router();
+const doctorRoutes = require('./doctorRoutes');
+const appointmentRoutes = require('./appointmentRoutes');
+const patientRoutes = require('./patientRoutes');
 
-router.use('/dashboard', dashboardRoutes)
+router.use('/doctors', doctorRoutes);
+router.use('/appointments', appointmentRoutes);
+router.use('/patients', patientRoutes);
 
-module.exports = router
+module.exports = router;
