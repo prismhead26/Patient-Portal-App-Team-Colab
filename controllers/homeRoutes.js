@@ -40,4 +40,24 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
+
+// // passes without auth to show data functionality
+// // very basic but retrievies doctors and their respective patients array w/ names
+// router.get("/patients", async (req, res) => {
+//   try {
+//     const doctorData = await Doctor.findAll({
+//       include: [{ model: Patient, attributes:['name']}],
+//       // order: [["name", "ASC"]],
+//     });
+
+//     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+//     console.log('docs....', doctors)
+//     res.render('profile', {
+//       doctors,
+//     });
+//   } catch (err) {
+//     res.status(500).json({ status: err, message: 'Oops, a server error!' })
+//   }
+// });
+
 module.exports = router;
