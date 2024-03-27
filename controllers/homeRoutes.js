@@ -17,9 +17,11 @@ router.get("/login", async (req, res) => {
   res.render("/login");
 });
 
-router.get("/profile", async (req, res) => {});
+router.get("/dashboard", async (req, res) => {
+    
+});
 
-router.get("/patients", withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const patientData = await Patient.findAll({
       attributes: ["name"],
@@ -34,7 +36,7 @@ router.get("/patients", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json({ status: err, message: 'Oops, a server error!' })
+    res.status(500).json({ status: "error", message: 'Oops, a server error!' })
   }
 });
 
