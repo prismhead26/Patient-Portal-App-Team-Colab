@@ -7,7 +7,16 @@ const jsonUtils = require("../utils/json_utils");
 // Route to get main HTML page
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage");
+    const doctorData = await Doctor.findAll({
+      attributes: ['name', 'clinic']
+    })
+
+    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+    const docObj = doctors.reduce((acc, curr) => Object.assign(acc, curr), {})
+    // console.log('doctor data ========', doctors)
+    res.render("homepage", {
+      ...doctors
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -20,7 +29,6 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-const array = [1, 2, 3, 4, 5]
 
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
