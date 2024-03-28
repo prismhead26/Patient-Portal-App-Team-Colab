@@ -8,14 +8,14 @@ const jsonUtils = require("../utils/json_utils");
 router.get("/", async (req, res) => {
   try {
     const doctorData = await Doctor.findAll({
-      attributes: ['name', 'clinic']
-    })
+      attributes: ["name", "clinic"],
+    });
 
     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
-    const docObj = doctors.reduce((acc, curr) => Object.assign(acc, curr), {})
+    const docObj = doctors.reduce((acc, curr) => Object.assign(acc, curr), {});
     // console.log('doctor data ========', doctors)
     res.render("homepage", {
-      ...doctors
+      ...doctors,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -29,42 +29,41 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
-
 router.get("/dashboard", withAuth, async (req, res) => {
-    try {
-      const doctorData = await Doctor.findByPk(req.session.user_id, {
-        include: [
-          {
-            model: Appointment,
-            attributes: ['time'],
-          },
-          {
-            model: Patient,
-            attributes: ['name'],
-          },
-        ],
-      });
-      const doct = doctorData.get({ plain: true })
+  try {
+    const doctorData = await Doctor.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Appointment,
+          attributes: ["time"],
+        },
+        {
+          model: Patient,
+          attributes: ["name"],
+        },
+      ],
+    });
+    const doct = doctorData.get({ plain: true });
 
-      res.render('dashboard', {
-        "data": jsonUtils.encodeJSON(doct),
-        ...doct
-      });
-    } catch (error) {
-      res.status(500).json({
-        status: "error",
-        message: 'Oops, a server error!'
-      })
-    }
+    res.render("dashboard", {
+      data: jsonUtils.encodeJSON(doct),
+      ...doct,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "Oops, a server error!",
+    });
+  }
 });
 
 router.get("/profile", withAuth, async (req, res) => {
   try {
     const doctorData = await Doctor.findByPk(req.session.user_id, {
       include: [
-        { 
+        {
           model: Patient,
-          attributes: ['name', 'address', 'birthday'],
+          attributes: ["name", "address", "birthday"],
         },
       ],
     });
@@ -75,10 +74,13 @@ router.get("/profile", withAuth, async (req, res) => {
       ...doct,
       logged_in: req.session.logged_in,
     });
-
   } catch (err) {
     res.status(500).json({ status: "error", message: "Oops, a server error!" });
   }
+});
+
+router.get("/signup", async (req, res) => {
+  res.render("signup");
 });
 
 module.exports = router;
