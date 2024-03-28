@@ -14,12 +14,10 @@ router.get("/login", async (req, res) => {
   if (req.session.logged_in) {
     return res.redirect("/");
   }
-  res.render("/login");
+  res.render("login");
 });
 
-router.get("/dashboard", async (req, res) => {
-    
-});
+router.get("/dashboard", async (req, res) => {});
 
 router.get("/profile", withAuth, async (req, res) => {
   try {
@@ -31,15 +29,14 @@ router.get("/profile", withAuth, async (req, res) => {
 
     const patients = patientData.map((patient) => patient.get({ plain: true }));
 
-    res.render("/profile", {
+    res.render("profile", {
       patients,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status(500).json({ status: "error", message: 'Oops, a server error!' })
+    res.status(500).json({ status: "error", message: "Oops, a server error!" });
   }
 });
-
 
 // // passes without auth to show data functionality
 // // very basic but retrievies doctors and their respective patients array w/ names
