@@ -5,6 +5,7 @@ const Appointment = require("./Appointment");
 //Doctor has many patients
 Doctor.hasMany(Patient, {
   foreignKey: "doctor_id",
+  onDelete: 'CASCADE'
 });
 
 //Patients belong to one doctor
