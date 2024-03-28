@@ -44,6 +44,6 @@ app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
-    console.log(`Patient Portal Listening on port ${PORT}...`)
+    console.log(`Patient Portal Listening on port http://localhost:${PORT}`)
   );
 });

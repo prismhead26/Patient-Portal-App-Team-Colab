@@ -1,14 +1,8 @@
 <section class="card">
   <!-- The contents of this card links to the gallery page using the gallery ID -->
+  <h3>
   <a href="/patient/{{id}}">
     <!-- The card contains the gallery name as the card header -->
-    <header>Doctor: {{name}}</header>
-  {{#each patients as |patient|}}
-    <p>All patients... {{patient.name}}</p>
-    {{else}}
-    <p class="empty">No content</p>
-  {{/each}}
-    <!-- The card contains the first painting of the gallery -->
-    <p>Hello world</p>
   </a>
+  </h3>
 </section>
