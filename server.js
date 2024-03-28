@@ -8,7 +8,7 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT || 3123;
 
 // if you run behind a proxy
 // app.set('trust proxy', 1)

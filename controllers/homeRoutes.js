@@ -1,13 +1,22 @@
 // ROUTES FOR HTML TEMPLATES
-
 const router = require("express").Router();
 const { Patient, Doctor, Appointment } = require("../models");
 const withAuth = require("../utils/auth");
+const jsonUtils = require("../utils/json_utils");
 
 // Route to get main HTML page
 router.get("/", async (req, res) => {
   try {
-    res.render("homepage");
+    const doctorData = await Doctor.findAll({
+      attributes: ['name', 'clinic']
+    })
+
+    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+    const docObj = doctors.reduce((acc, curr) => Object.assign(acc, curr), {})
+    // console.log('doctor data ========', doctors)
+    res.render("homepage", {
+      ...doctors
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -23,7 +32,7 @@ router.get("/login", async (req, res) => {
 
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
-      const doctor = await Doctor.findByPk(req.session.id, {
+      const doctorData = await Doctor.findByPk(req.session.user_id, {
         include: [
           {
             model: Appointment,
@@ -35,11 +44,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
           },
         ],
       });
-/*
-function utilizing script file (calendar.js) where appointment/patient 
-info will be implemented 
-*/
-      res.render('dashboard');
+      const doct = doctorData.get({ plain: true })
+
+      res.render('dashboard', {
+        "data": jsonUtils.encodeJSON(doct),
+        ...doct
+      });
     } catch (error) {
       res.status(500).json({
         status: "error",
@@ -48,10 +58,9 @@ info will be implemented
     }
 });
 
-
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    const doctorData = await Doctor.findByPk(req.session.id, {
+    const doctorData = await Doctor.findByPk(req.session.user_id, {
       include: [
         { 
           model: Patient,
@@ -60,10 +69,10 @@ router.get("/profile", withAuth, async (req, res) => {
       ],
     });
 
-    const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
+    const doct = doctorData.get({ plain: true });
 
     res.render("profile", {
-      patients,
+      ...doct,
       logged_in: req.session.logged_in,
     });
 
@@ -71,6 +80,5 @@ router.get("/profile", withAuth, async (req, res) => {
     res.status(500).json({ status: "error", message: "Oops, a server error!" });
   }
 });
-
 
 module.exports = router;
