@@ -1,3 +1,5 @@
+const signUpBtn = document.getElementById("signup-btn");
+
 const loginFormHandler = async (event) => {
   console.log("This is the login js file");
   event.preventDefault();
