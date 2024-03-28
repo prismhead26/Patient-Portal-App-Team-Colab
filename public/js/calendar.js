@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+function createApp(data) {
+  document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -9,8 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      events: []
+      events: data
     });
 
     calendar.render();
   });
+}
+
+module.exports = { createApp }
+
+/**
+ * createApp(data.map(obj => {
+ * return {
+ * title:
+ * start:
+ * }
+ * }))
+ */
