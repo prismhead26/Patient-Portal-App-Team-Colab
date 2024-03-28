@@ -1,3 +1,6 @@
-{{#each doctors as |doctor|}}
-{{> patient-details}}
-{{/each}}
+<section class="doctor-info">
+    <header>Doctor: {{doctor_name}}</header>
+        {{#each patients}}
+        {{> patient-details}}
+        {{/each}}
+</section>
