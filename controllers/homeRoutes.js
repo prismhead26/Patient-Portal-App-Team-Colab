@@ -20,6 +20,7 @@ router.get("/login", async (req, res) => {
   res.render("login");
 });
 
+
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
       const doctor = await Doctor.findByPk(req.session.id, {
@@ -47,6 +48,7 @@ info will be implemented
     }
 });
 
+
 router.get("/profile", withAuth, async (req, res) => {
   try {
     const doctorData = await Doctor.findByPk(req.session.id, {
@@ -60,13 +62,15 @@ router.get("/profile", withAuth, async (req, res) => {
 
     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
 
-    res.render('profile', {
-        ...doctors,
+    res.render("profile", {
+      patients,
+      logged_in: req.session.logged_in,
     });
 
   } catch (err) {
-    res.status(500).json({ status: "error", message: 'Oops, a server error!' })
+    res.status(500).json({ status: "error", message: "Oops, a server error!" });
   }
 });
+
 
 module.exports = router;
