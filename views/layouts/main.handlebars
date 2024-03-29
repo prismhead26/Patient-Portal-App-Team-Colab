@@ -48,13 +48,16 @@
               </li>			
               <li class="nav-item">
                 <a class="nav-link" href="/profile">Profile</a>
-              </li>			
+              </li>		
+              {{#if logged_in}}
+              <li class="nav-item">
+                <a class="nav-link" href="/" id="logout">Logout</a>
+              </li>	
+              {{else}}
               <li class="nav-item">
                 <a class="nav-link" href="/login">Login</a>
               </li>
-                 <li class="nav-item">
-                <a class="nav-link" href="/" id="logout">Logout</a>
-              </li>
+              {{/if}}
             </ul>		  
           </div>
         </div>
