@@ -7,22 +7,17 @@ function createCalendar(data) {
     document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
+        initialDate: '2024-03-12',
+        initialView: 'timeGridDay',
         events: data
     });
   calendar.render();
 });
 }
 
-createCalendar();
-
-// // module.exports = { createApp }
-
-// /**
-//  * createApp(data.map(obj => {
-//  * return {
-//  * title:
-//  * start:
-//  * }
-//  * }))
-//  */
+createCalendar(user['patients'].map(obj => {
+return {
+title: obj.name,
+start: obj.appointment.time
+}
+}))
