@@ -14,7 +14,8 @@ router.get("/", async (req, res) => {
     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
     // console.log('doctor data ========', doctors)
     res.render("homepage", {
-      doctors
+      doctors,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,9 +42,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
           attributes: ["name"],
           include: [
             {
-              model: Appointment
-            }
-          ]
+              model: Appointment,
+            },
+          ],
         },
       ],
     });
@@ -52,6 +53,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     res.render("dashboard", {
       data: jsonUtils.encodeJSON(doct),
       ...doct,
+      logged_in: req.session.logged_in,
     });
   } catch (error) {
     res.status(500).json({
