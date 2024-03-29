@@ -12,10 +12,9 @@ router.get("/", async (req, res) => {
     });
 
     const doctors = doctorData.map((doctor) => doctor.get({ plain: true }));
-    const docObj = doctors.reduce((acc, curr) => Object.assign(acc, curr), {});
     // console.log('doctor data ========', doctors)
     res.render("homepage", {
-      ...doctors,
+      doctors
     });
   } catch (err) {
     res.status(500).json(err);
@@ -40,6 +39,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
         {
           model: Patient,
           attributes: ["name"],
+          include: [
+            {
+              model: Appointment
+            }
+          ]
         },
       ],
     });
