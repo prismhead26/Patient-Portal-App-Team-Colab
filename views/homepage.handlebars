@@ -1,6 +1,11 @@
 <div class="container">
-    <h1 class="text-light">Welcome to the Homepage Woop Woop</h1>
-        {{#each doctors}}
-            <p class="text-light">Doctor : {{name}} in {{clinic}}</p><br>
-        {{/each}}
+  <div class="container d-flex flex-column align-items-center">
+    <h1 class="text-light">Welcome to the HealNTrack portal!</h1>
+    <p class="text-light">A Safe, Secure, and Convenient to access your health!</p>
+    <p class="mt-3 text-warning"><strong>Tip:</strong>
+      to continue, open the login page.</p>
+  </div>
+  {{#each doctors}}
+    <p class="text-light">Doctor : {{name}} in {{clinic}}</p><br />
+  {{/each}}
 </div>

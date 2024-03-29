@@ -4,11 +4,12 @@ const signupFormHandler = async (event) => {
   const name = document.querySelector("#name-signup").value.trim();
   const username = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-  console.log(name, username, password);
+  const clinic = document.querySelector("#clinic-signup").value.trim();
+
   if (name && username && password) {
     const response = await fetch("/api/doctors", {
       method: "POST",
-      body: JSON.stringify({ name, username, password }),
+      body: JSON.stringify({ name, username, password, clinic }),
       headers: { "Content-Type": "application/json" },
     });
 
