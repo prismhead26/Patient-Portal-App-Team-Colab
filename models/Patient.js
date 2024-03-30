@@ -35,20 +35,6 @@ Patient.init(
     },
   },
   {
-    hooks: {
-      beforeCreate: async (newPatientData) => {
-        newPatientData.password = await bcrypt.hash(
-          newPatientData.password,
-          10
-        );
-        return newPatientData;
-      },
-      beforeUpdate: async (updatedPatientData) => {
-        updatedPatientData.password = await bcrypt.hash(updatedPatientData);
-        return updatedPatientData;
-      },
-    },
-
     sequelize,
     timestamps: false,
     freezeTableName: true,
