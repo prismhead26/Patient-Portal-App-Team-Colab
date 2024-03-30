@@ -11,6 +11,10 @@ Appointment.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     time: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,7 +28,7 @@ Appointment.init(
     },
     patient_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {

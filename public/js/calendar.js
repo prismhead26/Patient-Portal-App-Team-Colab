@@ -7,6 +7,7 @@ function createCalendar(data) {
     document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
+        height: 'auto',
         initialDate: '2024-03-12',
         initialView: 'timeGridDay',
         events: data
@@ -15,9 +16,9 @@ function createCalendar(data) {
 });
 }
 
-createCalendar(user['patients'].map(obj => {
+createCalendar(user['appointments'].map(obj => {
 return {
-title: obj.name,
-start: obj.appointment.time
+title: obj.title,
+start: obj.time
 }
 }))
