@@ -33,22 +33,22 @@ router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const doctorData = await Doctor.findByPk(req.session.user_id, {
       include: [
+        // {
+        //   model: Appointment,
+        //   attributes: ["time", "title"],
+        // },
+        // {
+        //   model: Patient,
+        //   attributes: ["name"],
+        //   include: [
+        //     {
+        //       model: Appointment,
+        //     },
+        //   ],
+        // },
         {
           model: Appointment,
-          attributes: ["time", "title"],
-        },
-        {
-          model: Patient,
-          attributes: ["name"],
-          include: [
-            {
-              model: Appointment,
-            },
-          ],
-        },
-        {
-          model: Appointment,
-          attributes: ["time", "title"],
+          attributes: ["time", "title", "id", "doctor_id"],
           include: [
             {
               model: Patient,
