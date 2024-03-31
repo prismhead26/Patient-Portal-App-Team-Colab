@@ -19,16 +19,16 @@ Appointment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    patient_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
     doctor_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "doctor",
         key: "id",
       },
-    },
-    patient_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
     },
   },
   {
