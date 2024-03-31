@@ -16,7 +16,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload("/profile");
     } else {
-      alert(response.statusText);
+      alert("alert from the js function" + response.statusText);
     }
   }
 };

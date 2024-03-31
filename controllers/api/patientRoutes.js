@@ -50,7 +50,6 @@ router.delete("/:id", withAuth, async (req, res) => {
     const patientData = await Patient.destroy({
       where: {
         id: req.params.id,
-        doctor_id: req.session.user_id,
       },
     });
     res.status(200).json(patientData);
@@ -59,6 +58,19 @@ router.delete("/:id", withAuth, async (req, res) => {
       status: "error",
       message: "Oops, an error has occured",
     });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const patientData = await Patient.findByPk(req.params.id);
+
+    const patient = patientData.get({ plain: true });
+    res.render("patient", {
+      patient,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
