@@ -1,4 +1,11 @@
+.login-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .wrapper {
+    margin: 13rem;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -69,4 +76,19 @@ input:valid~label {
     font-size: 1.2em;
     color: white;
     line-height: 40px;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+}
+
+.new-user {
+    font-size: .9em;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
 }
