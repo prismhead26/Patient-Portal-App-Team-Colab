@@ -20,7 +20,11 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the dashboard page
       document.location.assign("/dashboard");
     } else {
-      alert(response.statusText);
+      let myModal = new bootstrap.Modal(
+        document.getElementById("errorModal"),
+        {}
+      );
+      myModal.show();
     }
   }
 };
