@@ -1,12 +1,14 @@
 const router = require("express").Router();
-const { Appointment, Patient, Doctor } = require("../../models");
+const { Appointment } = require("../../models");
 const withAuth = require("../../utils/auth");
+const dayjs = require('dayjs')
 
 // Create a appointment
 router.post("/", withAuth, async (req, res) => {
   try {
     const appointmentData = await Appointment.create({
         ...req.body,
+        time: dayjs(req.body.time).format('YYYY-MM-DDTHH:mm:ss'),
         doctor_id: req.session.user_id,
     });
     res.status(200).json(appointmentData);
@@ -24,7 +26,7 @@ router.put("/:id", withAuth, async (req, res) => {
     const appointmentData = await Appointment.update(
       {
         title: req.body.title,
-        time: req.body.time,
+        time: dayjs(req.body.time).format('YYYY-MM-DDTHH:mm:ss'),
         patient_id: req.body.patient_id,
       },
       {
