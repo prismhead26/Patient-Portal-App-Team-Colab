@@ -32,17 +32,25 @@
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form action="" class="form">
-          <label for="new-appointment-name">Appointment Time:</label>
-          <input class="form-input" type="text" id="new-appointment-name" name="new-appointment-name"><br>Ex.(12:30:00 Military time)<br>
-          <label for="new-appointment-title">Title:</label>
-          <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title"><br>
-          <label for="new-patient-patient_id">Patient ID:</label>
-          <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id"><br>
-        <div class="modal-footer">
-            <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
+        <div class="form-box">
+          <form action="" class="form">
+            <div>
+              <span class="icon"><ion-icon name="time-outline"></ion-icon></span>
+              <label for="new-appointment-name">Appointment Time:</label>
+              <input class="form-input" type="text" id="new-appointment-name" name="new-appointment-name" placeholder="Ex: 12:30:00">
+            </div>
+
+            <label for="new-appointment-title">Title:</label>
+            <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title"><br>
+            <label for="new-patient-patient_id">Patient ID:</label>
+            <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id"><br>
+            <div class="modal-footer">
+              <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
+            </div>
+          </form>
         </div>
-        </form>
+
+
       </div>
     </div>
   </div>
