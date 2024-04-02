@@ -8,7 +8,11 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert("Failed to delete project");
+      let myModal = new bootstrap.Modal(
+        document.getElementById("deleteModal"),
+        {}
+      );
+      myModal.show();
     }
   }
 };
@@ -38,7 +42,11 @@ const upButtonHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      alert(response.statusText);
+      let myModal = new bootstrap.Modal(
+        document.getElementById("updateModal"),
+        {}
+      );
+      myModal.show();
     }
   }
 };
