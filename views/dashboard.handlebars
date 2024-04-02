@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/dashboard.css"/>
 
 <style>
     .fc .fc-toolbar-title, .fc .fc-timegrid-axis-cushion, .fc .fc-timegrid-slot-label-cushion  { 
@@ -6,17 +7,17 @@
     }
 </style>
 
-<button class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#myCalModal">Add Appointment</button>
+<button class="btn btn-primary float-right mb-5" data-bs-toggle="modal" data-bs-target="#myCalModal">Add Appointment</button>
 
   {{#if appointments.length}}
-  <div class="container row">
-    <h3 class="text-light text-center">List of current appointments:</h3>
+  <div class="container appointment-cont mt-5 mb-4">
+    <h3 class="text-light text-center list-title p-0">List of current appointments:</h3>
 
     {{#each appointments as |appointment|}}
-    <div class="row mb-2 justify-content-between d-flex">
-      <div class="col-md-6">
+    <div class="patient-cont d-flex flex-column">
+      <div>
         <h4><a  href="/api/appointments/{{id}}" class="link-warning">{{appointment.title}}
-      </a></h4>
+        </a></h4>
       </div>
     </div>
     {{/each}}

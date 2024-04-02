@@ -67,9 +67,12 @@
     transition: .5s;
 }
 
-.input-box input:focus~label {
+
+
+
+/* .input-box input:focus~label {
     top: -5px;
-}
+} */
 
 .input-box input:valid~label {
     top: -5px;
