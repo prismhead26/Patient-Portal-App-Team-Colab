@@ -6,21 +6,6 @@
   
 <link rel="stylesheet" href="/css/appointment.css" />
 
-<<<<<<< HEAD
-<div>
-<div class="text-center text-light">
-  <h2>Title: {{appointment.title}}</h2>
-  <p>Appointment time: {{formatDate appointment.time}}</p>
-  <p>Patient ID Number: {{appointment.patient_id}}</p>
-
-  <p>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myUpdateModal">Update Appointment</button>
-
-    <a href="/dashboard"><button class="btn btn-primary">Return to Dashboard</button></a>
-    <button class="btn btn-sm btn-danger" id="delete-button" data-id="{{appointment.id}}">DELETE</button>
-
-  </p>
-=======
 {{!-- NEW --}}
 <div class="container">
   <div class="row text-center text-light">
@@ -54,7 +39,6 @@
     <div class="patient-actions">
     </div>
   </div>
->>>>>>> 2d89ee3 (styling updates to specifically an individual appointment layout.)
 </div>
 <div class="modal fade" id="myUpdateModal">
   <div class="modal-dialog">
@@ -82,6 +66,27 @@
             <label for="appointment-patient_id" class="text">Patient_id:</label>
             <input class="form-input" type="text" id="update-appointment-patient_id" value="{{appointment.patient_id}}"><br>
           </div>
+
+          {{!-- OLD STRUCTURE NEW OPTION TAGS --}}
+        <form action="">
+          <label for="appointment-title">title: </label>
+          <input
+            type="text"
+            id="update-appointment-title"
+            value="{{appointment.title}}"
+          /><br />
+          <label for="new-appointment-day">Appointment day:</label>
+          <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
+          <label for="new-appointment-time">Appointment Time:</label>
+          <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
+          <label for="appointment-patient_id">Patient_id:
+          </label>
+          <select class="form-select" id="new-appointment-patient_id">
+          <option selected>Choose...</option>
+          {{#each patients}}
+          <option value="{{id}}">{{id}}</option>
+          {{/each}}
+          <option>None</option><br />
         </form>
       </div>
       <div class="modal-footer">

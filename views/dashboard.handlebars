@@ -50,6 +50,23 @@
             <label for="appointment-patient_id" class="text">Patient_id:</label>
             <input class="form-input" type="text" id="new-patient-patient_id" value="{{appointment.patient_id}}"><br>
           </div>
+          <label for="new-appointment-day">Appointment day:</label>
+          <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
+          <label for="new-appointment-time">Appointment Time:</label>
+          <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
+          <label for="new-appointment-title">Title:</label>
+          <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title"><br>
+          <label for="new-patient-patient_id">Patient ID:</label>
+          <select class="form-select" id="new-patient-patient_id" required>
+          <option selected>Choose...</option>
+          {{#each patients as |patient|}}
+          <option value="{{id}}">{{id}}</option>
+          {{/each}}
+          <option>None</option>
+    </select><br>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
+        </div>
         </form>
       </div>
       <div class="modal-footer">
