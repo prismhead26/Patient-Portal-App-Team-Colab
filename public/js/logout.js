@@ -7,7 +7,11 @@ const logout = async () => {
   if (response.ok) {
     document.location.replace("/");
   } else {
-    alert(response.statusText);
+    let myModal = new bootstrap.Modal(
+      document.getElementById("errorModal"),
+      {}
+    );
+    myModal.show();
   }
 };
 
