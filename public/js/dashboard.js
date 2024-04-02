@@ -1,8 +1,10 @@
+
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const timeEl = document.querySelector("#new-appointment-name").value.trim();
-    const time = '2024-03-12T' + timeEl
+    const timeEl = document.querySelector("#new-appointment-time").value.trim();
+    const dateEl = document.querySelector("#new-appointment-day").value.trim();
+    const time = dateEl + 'T' + timeEl
     const title = document.querySelector("#new-appointment-title").value.trim();
     const patient_id = document.querySelector("#new-patient-patient_id").value.trim();
   
