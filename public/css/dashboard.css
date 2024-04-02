@@ -3,6 +3,7 @@
     height: auto;
 }
 
+
 .appointment-cont {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
@@ -16,7 +17,24 @@
     text-decoration: underline;
 }
 
-.modal-body {
+.form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apt-time-cont {
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
+
+.modal-title {
+    text-align: center;
+}
+
+.text {
+    margin-bottom: 0;
 }

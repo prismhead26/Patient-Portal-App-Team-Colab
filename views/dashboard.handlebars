@@ -28,29 +28,39 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title fs-5" id="myCalModalLabel">New Appointment Information</h5>
+        <h5 class="modal-title fs-5 text-align-center" id="myCalModalLabel">New Appointment Information</h5>
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <div class="form-box">
-          <form action="" class="form">
-            <div>
-              <span class="icon"><ion-icon name="time-outline"></ion-icon></span>
-              <label for="new-appointment-name">Appointment Time:</label>
+        <form action="" class="form">
+          <div class = "row apt-time-cont">
+             <div class = "small-2 columns">
+              <label for="new-appointment-name" class="text">Appointment Time</label>
+             </div>
+             <div class = "small-2 columns">
               <input class="form-input" type="text" id="new-appointment-name" name="new-appointment-name" placeholder="Ex: 12:30:00">
-            </div>
-
-            <label for="new-appointment-title">Title:</label>
-            <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title"><br>
-            <label for="new-patient-patient_id">Patient ID:</label>
-            <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id"><br>
-            <div class="modal-footer">
-              <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
-            </div>
-          </form>
-        </div>
-
-
+             </div>
+          </div>
+          <div class = "row apt-time-cont">
+             <div class = "small-6 columns">
+              <label for="new-appointment-title" class="text">Title</label>
+             </div>
+             <div class = "small-6 columns">
+              <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title">
+             </div>
+          </div>
+          <div class = "row apt-time-cont">
+             <div class = "small-6 columns">
+              <label for="new-patient-patient_id" class="text">Patient ID</label>
+             </div>
+             <div class = "small-6 columns">
+              <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id"> 
+             </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
