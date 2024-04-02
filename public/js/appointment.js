@@ -1,7 +1,9 @@
   const upButtonHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector("#update-appointment-title").value.trim();
-    const time = document.querySelector("#update-appointment-time").value.trim();
+    const timeEl = document.querySelector("#new-appointment-time").value.trim();
+    const dateEl = document.querySelector("#new-appointment-day").value.trim();
+    const time = dateEl + 'T' + timeEl
     const patient_id = document.querySelector("#update-appointment-patient_id").value.trim();
   
     if (event.target.hasAttribute("data-id")) {
