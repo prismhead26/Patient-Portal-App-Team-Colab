@@ -45,3 +45,41 @@ p {
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
+.modal-patient-info {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
+.modal-content {
+    border-radius: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.text {
+    margin-bottom: 2px;
+    margin-top: 3px;
+}
+
+.sub {
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-size: 15px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+}
+

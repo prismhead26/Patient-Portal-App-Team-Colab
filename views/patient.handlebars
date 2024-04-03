@@ -48,7 +48,33 @@
           Information</h5>
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
+{{!-- NEW -------------------------------------------------- --}}
       <div class="modal-body">
+        <form action="" class="form">
+          <div class="modal-patient-info">
+            <label for="patient-name" class="text">Patient Name:</label>
+            <input class="form-input" type="text" id="new-patient-name" placeholder="Ex: John Smith"><br>
+          </div>
+          <div class="modal-patient-info">
+            <label for="patient-birthday" class="text">Birthdate:</label>
+            <input class="form-input" type="text" id="new-patient-birthday" placeholder="Ex: MM/DD/YYY"><br>
+          </div>
+          <div class="modal-patient-info">
+            <label for="patient-address" class="text">Address:</label>
+            <input class="form-input" type="text" id="new-patient-address" placeholder="Ex: Street, City, State, Zip"><br>
+          </div>
+          <div class="modal-patient-info">
+            <label for="patient-phone" class="text">Phone:</label>
+            <input class="form-input" type="text"id="new-patient-phone" placeholder="Ex: 816-000-0000"><br>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary sub" id="new-patient">Submit Patient</button>
+      </div>
+{{!-- OLD ---------------------------------------------- --}}
+      {{!-- <div class="modal-body">
         <form action="">
           <label for="patient-name">Name: </label>
           <input
@@ -84,7 +110,7 @@
           id="update-button"
           data-id="{{patient.id}}"
         >Submit Patient</button>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>
