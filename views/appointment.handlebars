@@ -5,6 +5,7 @@
   crossorigin="anonymous"
 />
 
+<div>
 <div class="text-center text-light">
   <h2>Title: {{appointment.title}}</h2>
   <p>Appointment time: {{formatDate appointment.time}}</p>
@@ -58,6 +59,31 @@
       </div>
     </div>
   </div>
+</div>
+
+<div
+  class="modal fade"
+  id="errorModal"
+  tabindex="-1"
+  aria-labelledby="errorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Please try again.</h5>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <script

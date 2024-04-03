@@ -1,23 +1,53 @@
-<div class="row">
-  <div class="col-md-6 text-white">
-    <h2>Login</h2>
 
+<div class="login-cont">
+  <div class="row wrapper">
+  <div class="col-md-6 text-white form-box">
+
+    <h2>Login</h2>
     <form class="form login-form text-white">
-      <div class="form-group">
-        <label for="username-login">username:</label>
+      <div class="form-group input-box">
+        <span class="icon"><ion-icon name="mail"></ion-icon></span>
         <input class="form-input" type="text" id="username-login" />
+        <label for="username-login">Username</label>
       </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
+      <div class="form-group input-box">
+        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
         <input class="form-input" type="password" id="password-login" />
+        <label for="password-login">Password</label>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">login</button>
       </div>
-      <p>New User? <a href="/signup">Signup</a></p>
+      <p class="new-user">New User? <a href="/signup">Signup</a></p>
     </form>
   </div>
+
   <div class="col-md-6">
+
+    <div
+  class="modal fade"
+  id="errorModal"
+  tabindex="-1"
+  aria-labelledby="errorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Unable to login. Please try again.</h5>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 
 <script src="/js/login.js"></script>

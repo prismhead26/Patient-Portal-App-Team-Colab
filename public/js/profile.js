@@ -16,7 +16,11 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload("/profile");
     } else {
-      alert("alert from the js function" + response.statusText);
+      let myModal = new bootstrap.Modal(
+        document.getElementById("errorModal"),
+        {}
+      );
+      myModal.show();
     }
   }
 };
