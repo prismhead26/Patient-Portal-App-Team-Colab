@@ -6,124 +6,178 @@
 />
 
 <div>
-<div class="text-center text-light">
-  <h2>{{patient.name}}</h2>
-  <p>DOB: {{patient.birthday}}</p>
-  <p>Address: {{patient.address}}</p>
-  <p>Phone number: {{patient.phone}}</p>
-  <p>Unique ID: {{patient.id}}</p>
+  <div class="text-center text-light">
+    <h2>{{patient.name}}</h2>
+    <p>DOB: {{patient.birthday}}</p>
+    <p>Address: {{patient.address}}</p>
+    <p>Phone number: {{patient.phone}}</p>
+    <p>Unique ID: {{patient.id}}</p>
 
-  <p>
-    <button
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#myModal"
-    >Update Patient</button>
-    <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
-    <button
-      class="btn btn-primary"
-      id="delete-button"
-      data-id="{{patient.id}}"
-    >Delete Patient</button>
-  </p>
-</div>
+    <p>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#myModal"
+      >Update Patient</button>
+      <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
+      <button
+        class="btn btn-primary"
+        id="delete-button"
+        data-id="{{patient.id}}"
+      >Delete Patient</button>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#noteModal"
+      >Add New Note</button>
+    </p>
 
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title fs-5" id="myModalLabel">Update Patient
-          Information</h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
+  </div>
+  <section>
+    {{#if noteData.length}}
+      <div class="container appointment-cont mt-5 mb-4">
+        <h3 class="text-light text-center list-title p-0">Notes</h3>
+
+        {{#each noteData as |note|}}
+          <div class="patient-cont d-flex flex-column">
+            <div>
+              <h4><a
+                  href="/api/notes/{{id}}"
+                  class="link-warning"
+                >{{note.dataValues.body}}
+                  <br />
+                  <br />
+                </a></h4>
+            </div>
+          </div>
+        {{/each}}
       </div>
-      <div class="modal-body">
-        <form action="">
-          <label for="patient-name">Name: </label>
-          <input
-            type="text"
-            id="update-patient-name"
-            value="{{patient.name}}"
-          /><br />
-          <label for="patient-birthday">Birthdate:
-          </label>
-          <input
-            type="text"
-            id="update-patient-birthday"
-            value="{{patient.birthday}}"
-          /><br />
-          <label for="patient-address">Address:
-          </label>
-          <input
-            type="text"
-            id="update-patient-address"
-            value="{{patient.address}}"
-          /><br />
-          <label for="patient-phone">Phone: </label>
-          <input
-            type="text"
-            id="update-patient-phone"
-            value="{{patient.phone}}"
-          /><br />
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-          class="btn btn-primary"
-          id="update-button"
-          data-id="{{patient.id}}"
-        >Submit Patient</button>
+    {{/if}}
+  </section>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="myModalLabel">Update Patient
+            Information</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <label for="patient-name">Name: </label>
+            <input
+              type="text"
+              id="update-patient-name"
+              value="{{patient.name}}"
+            /><br />
+            <label for="patient-birthday">Birthdate:
+            </label>
+            <input
+              type="text"
+              id="update-patient-birthday"
+              value="{{patient.birthday}}"
+            /><br />
+            <label for="patient-address">Address:
+            </label>
+            <input
+              type="text"
+              id="update-patient-address"
+              value="{{patient.address}}"
+            /><br />
+            <label for="patient-phone">Phone: </label>
+            <input
+              type="text"
+              id="update-patient-phone"
+              value="{{patient.phone}}"
+            /><br />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-primary"
+            id="update-button"
+            data-id="{{patient.id}}"
+          >Submit Patient</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div
-  class="modal fade"
-  id="deleteModal"
-  tabindex="-1"
-  aria-labelledby="errorModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="errorModalLabel">Unable to delete account. Please try again.</h5>
-
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >Close</button>
-
+  <div class="modal fade" id="noteModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="myModalLabel">Add Note</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <label for="note"></label>
+          <textarea id="new-note" rows="20" cols="60"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-primary"
+            id="addNote"
+            data-id="{{patient.id}}"
+          >Add Note</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div
-  class="modal fade"
-  id="updateModal"
-  tabindex="-1"
-  aria-labelledby="errorModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="errorModalLabel">Unable to update account. Please try again.</h5>
+  <div
+    class="modal fade"
+    id="deleteModal"
+    tabindex="-1"
+    aria-labelledby="errorModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Unable to delete account.
+            Please try again.</h5>
 
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >Close</button>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >Close</button>
 
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div
+    class="modal fade"
+    id="updateModal"
+    tabindex="-1"
+    aria-labelledby="errorModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Unable to update account.
+            Please try again.</h5>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script

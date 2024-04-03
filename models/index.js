@@ -1,6 +1,7 @@
 const Doctor = require("./Doctor");
 const Patient = require("./Patient");
 const Appointment = require("./Appointment");
+const Note = require("./Note");
 
 //Doctor has many patients
 Doctor.hasMany(Patient, {
@@ -33,4 +34,12 @@ Appointment.belongsTo(Doctor, {
   foreignKey: "doctor_id",
 });
 
-module.exports = { Doctor, Patient, Appointment };
+Patient.hasMany(Note, {
+  foreignKey: "patient_id",
+});
+
+Note.belongsTo(Patient, {
+  foreignKey: "patient_id",
+});
+
+module.exports = { Doctor, Patient, Appointment, Note };

@@ -1,15 +1,17 @@
 const router = require("express").Router();
-const { Patient, Doctor, Note } = require("../../models");
+const { Note, Patient, Doctor } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Create a patient
 router.post("/", withAuth, async (req, res) => {
   try {
-    const patientData = await Patient.create({
+    const noteData = await Note.create({
       ...req.body,
+      body: req.body.body,
       doctor_id: req.session.user_id,
+      patient_id: req.body.patient_id,
     });
-    res.status(200).json(patientData);
+
+    res.status(200).json(noteData);
   } catch (error) {
     res.status(500).json({
       status: "error",
@@ -18,15 +20,14 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Update a patient
+// Update a Note
 router.put("/:id", withAuth, async (req, res) => {
   try {
-    const patientData = await Patient.update(
+    const noteData = await Note.update(
       {
-        name: req.body.name,
-        address: req.body.address,
-        phone: req.body.phone,
-        birthday: req.body.birthday,
+        title: req.body.title,
+        time: dayjs(req.body.time).format("YYYY-MM-DDTHH:mm:ss"),
+        patient_id: req.body.patient_id,
       },
       {
         where: {
@@ -35,7 +36,7 @@ router.put("/:id", withAuth, async (req, res) => {
         },
       }
     );
-    res.status(200).json(patientData);
+    res.status(200).json(noteData);
   } catch (error) {
     res.status(500).json({
       status: "error",
@@ -44,15 +45,16 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Delete a patient
+// Delete a Note
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const patientData = await Patient.destroy({
+    const noteData = await Note.destroy({
       where: {
         id: req.params.id,
+        doctor_id: req.session.user_id,
       },
     });
-    res.status(200).json(patientData);
+    res.status(200).json(noteData);
   } catch (error) {
     res.status(500).json({
       status: "error",
@@ -63,20 +65,12 @@ router.delete("/:id", withAuth, async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const patientData = await Patient.findByPk(req.params.id, {
-      include: {
-        model: Note,
-        attributes: ["body"],
-      },
-    });
+    console.log(req.body);
+    const noteData = await Note.findByPk(req.params.id, {});
 
-    const noteData = patientData.notes;
-
-    const patient = patientData.get({ plain: true });
-
-    res.render("patient", {
-      patient,
-      noteData,
+    const Note = noteData.get({ plain: true });
+    res.render("Note", {
+      Note,
     });
   } catch (err) {
     res.status(500).json(err);
