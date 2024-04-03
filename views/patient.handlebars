@@ -22,7 +22,8 @@
       <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
       <button
         class="btn btn-primary"
-        id="delete-button"
+        data-bs-toggle="modal"
+        data-bs-target="#deleteModal"
         data-id="{{patient.id}}"
       >Delete Patient</button>
       <button
@@ -41,13 +42,10 @@
         {{#each noteData as |note|}}
           <div class="patient-cont d-flex flex-column">
             <div>
-              <h4><a
-                  href="/api/notes/{{id}}"
-                  class="link-warning"
-                >{{note.dataValues.body}}
-                  <br />
-                  <br />
-                </a></h4>
+              <h4 class="text-light">{{note.dataValues.body}}
+                <br />
+                <br />
+              </h4>
             </div>
           </div>
         {{/each}}
@@ -121,6 +119,30 @@
             id="addNote"
             data-id="{{patient.id}}"
           >Add Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="myModalLabel">Delete This Patient?</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Go Back</button>
+          <button
+            class="btn btn-primary"
+            id="delete-button"
+            data-id="{{patient.id}}"
+          >Delete</button>
+
         </div>
       </div>
     </div>
