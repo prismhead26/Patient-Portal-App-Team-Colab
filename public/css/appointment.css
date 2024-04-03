@@ -5,12 +5,12 @@ p {
     padding-right: 0;
 }
 
-.patient-info-container {
+.appt-info-container{
     position: relative;
     right: 1em;
     margin-bottom: 2em;
-    padding-top: .8em;
     width: 400px;
+    margin-left: 2em;
 }
 
 .border {
@@ -19,21 +19,21 @@ p {
     height: 400px;
 }
 
-.patient-name {
+.appt-title {
     width: 500px;
     text-align: start;
-    font-size: 60px;
+    font-size: 50px;
 }
 
-.patient-info-title {
+.appt-info-title {
     text-align: start;
     font-size: 45px;
     text-decoration: underline;
     text-decoration-thickness: 3px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
-.patient-info {
+.appt-info {
     font-size: 18px;
     display: flex;
     text-align: start;
@@ -44,7 +44,7 @@ p {
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 }
-.modal-patient-info {
+.modal-appt-info {
     text-decoration: none;
     font-size: 20px;
     text-align: center;
@@ -81,4 +81,3 @@ p {
     padding-left: 10px;
     padding-bottom: 2px;
 }
-

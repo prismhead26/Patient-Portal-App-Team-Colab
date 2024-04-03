@@ -20,6 +20,10 @@
     border-radius: 20px;
 }
 
+.modal-body {
+    padding: 0;
+}
+
 .modal-title {
     text-align: center;
 }
@@ -49,6 +53,8 @@
 
 .sub {
     border-radius: 10px;
+    width: 400px;
+    margin: 0;
 }
 
 ::placeholder {

@@ -2,9 +2,11 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-  crossorigin="anonymous"
-/>
+  crossorigin="anonymous" />
+  
+<link rel="stylesheet" href="/css/appointment.css" />
 
+<<<<<<< HEAD
 <div>
 <div class="text-center text-light">
   <h2>Title: {{appointment.title}}</h2>
@@ -18,6 +20,41 @@
     <button class="btn btn-sm btn-danger" id="delete-button" data-id="{{appointment.id}}">DELETE</button>
 
   </p>
+=======
+{{!-- NEW --}}
+<div class="container">
+  <div class="row text-center text-light">
+    <div class="col appt-title-container">
+      <div class="row">
+        <h1 class="appt-title">Appointment:<br/> {{appointment.title}}</h1>
+      </div>
+    </div>
+    <div class="col appt-info-container">
+      <div class="row">
+        <h2 class="appt-info-title">Appointment Information</h2>
+      </div>
+      <div class="row appt-info">
+        <p><u>DOB</u>: {{patient.birthday}}</p>
+        <p><u>Appointment time:</u>: {{formatDate appointment.time}}</p>
+        <p><u>Phone number</u>: {{patient.phone}}</p>
+        <p><u>Patient ID Number:</u>: {{appointment.patient_id}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myUpdateModal">Update Appointment</button>
+    </div>
+    <div class="col">
+      <a href="/dashboard"><button class="btn btn-primary">Return to Dashboard</button></a>
+    </div>
+    <div class="col">
+      <button class="btn btn-sm btn-danger" id="delete-button" data-id="{{appointment.id}}">Delete Appointment</button>
+    </div>
+    <div class="patient-actions">
+    </div>
+  </div>
+>>>>>>> 2d89ee3 (styling updates to specifically an individual appointment layout.)
 </div>
 
 <div class="modal fade" id="myUpdateModal">
