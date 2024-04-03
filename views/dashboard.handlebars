@@ -34,31 +34,23 @@
       </div>
       <div class="modal-body">
         <form action="" class="form">
-          <div class = "row apt-time-cont">
-             <div class = "small-2 columns">
-              <label for="new-appointment-name" class="text">Appointment Time</label>
-             </div>
-             <div class = "small-2 columns">
-              <input class="form-input" type="text" id="new-appointment-name" name="new-appointment-name" placeholder="Ex: 12:30:00">
-             </div>
-          </div>
-          <div class = "row apt-time-cont">
-             <div class = "small-6 columns">
-              <label for="new-appointment-title" class="text">Title</label>
-             </div>
-             <div class = "small-6 columns">
-              <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title">
-             </div>
-          </div>
-          <div class = "row apt-time-cont">
-             <div class = "small-6 columns">
-              <label for="new-patient-patient_id" class="text">Patient ID</label>
-             </div>
-             <div class = "small-6 columns">
-              <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id"> 
-             </div>
-          </div>
-          <div class="modal-footer">
+
+          <label for="new-appointment-day">Appointment day:</label>
+          <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
+          <label for="new-appointment-time">Appointment Time:</label>
+          <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
+          <label for="new-appointment-title">Title:</label>
+          <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title"><br>
+          <label for="new-patient-patient_id">Patient ID:</label>
+          <select class="form-select" id="new-patient-patient_id" required>
+          <option selected>Choose...</option>
+          {{#each patients as |patient|}}
+          <option value="{{id}}">{{id}}</option>
+          {{/each}}
+          <option>None</option>
+    </select><br>
+        <div class="modal-footer">
+
             <button class="btn btn-primary" id="new-appointment">Submit Appointment</button>
           </div>
         </form>

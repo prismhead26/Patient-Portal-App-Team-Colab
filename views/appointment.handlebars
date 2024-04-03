@@ -42,11 +42,12 @@
           <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
           <label for="appointment-patient_id">Patient_id:
           </label>
-          <input
-            type="text"
-            id="update-appointment-patient_id"
-            value="{{appointment.patient_id}}"
-          /><br />
+          <select class="form-select" id="new-appointment-patient_id">
+          <option selected>Choose...</option>
+          {{#each patients}}
+          <option value="{{id}}">{{id}}</option>
+          {{/each}}
+          <option>None</option><br />
         </form>
       </div>
       <div class="modal-footer">

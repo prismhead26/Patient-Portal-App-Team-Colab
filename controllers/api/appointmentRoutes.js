@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Appointment } = require("../../models");
+const { Appointment, Patient, Doctor } = require("../../models");
 const withAuth = require("../../utils/auth");
 const dayjs = require('dayjs')
 
@@ -63,13 +63,25 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const appointmentData = await Appointment.findByPk(req.params.id);
 
+    const patientData = await Doctor.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Patient,
+          attributes: ["id"],
+        },
+      ]
+    })
+
     const appointment = appointmentData.get({ plain: true });
+    const patient = patientData.get({ plain: true });
+
     res.render("appointment", {
       appointment,
+      ...patient
     });
   } catch (err) {
     res.status(500).json(err);
