@@ -34,6 +34,7 @@
         <h2 class="appt-info-title">Appointment Information</h2>
       </div>
       <div class="row appt-info">
+        <p><u>DOB</u>: {{patient.birthday}}</p>
         <p><u>Appointment time:</u>: {{formatDate appointment.time}}</p>
         <p><u>Phone number</u>: {{patient.phone}}</p>
         <p><u>Patient ID Number:</u>: {{appointment.patient_id}}</p>
@@ -55,7 +56,6 @@
   </div>
 >>>>>>> 2d89ee3 (styling updates to specifically an individual appointment layout.)
 </div>
-
 <div class="modal fade" id="myUpdateModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -64,11 +64,10 @@
           Information</h5>
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-{{!-- NEW -------------------------------------------------- --}}
       <div class="modal-body">
         <form action="" class="form">
           <div class="modal-appt-info">
-            <label for="appointment-titl" class="text">Appointment Title:</label>
+            <label for="appointment-title" class="text">Appointment Title:</label>
             <input class="form-input" type="text" id="update-appointment-title" value="{{appointment.title}}"/><br>
           </div>
           <div class="modal-appt-info">
@@ -90,31 +89,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div
-  class="modal fade"
-  id="errorModal"
-  tabindex="-1"
-  aria-labelledby="errorModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="errorModalLabel">Please try again.</h5>
-
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-        >Close</button>
-
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 
 <script

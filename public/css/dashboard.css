@@ -1,3 +1,9 @@
+p {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .appointment-cont {
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
@@ -20,6 +26,14 @@
     border-radius: 20px;
 }
 
+.modal-appt-info {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
 .modal-body {
     padding: 0;
 }
@@ -34,13 +48,6 @@
     align-items: center;
 }
 
-.apt-time-cont {
-    font-size: 20px;
-    text-align: center;
-    width: 55%;
-    margin-top: 10px;
-}
-
 .form-input{
     border: 1px solid gray;
     border-radius: 5px;
@@ -53,8 +60,6 @@
 
 .sub {
     border-radius: 10px;
-    width: 400px;
-    margin: 0;
 }
 
 ::placeholder {

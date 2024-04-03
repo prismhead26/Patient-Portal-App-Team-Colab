@@ -34,34 +34,26 @@
       </div>
       <div class="modal-body">
         <form action="" class="form">
-          <div class = "row apt-time-cont">
-             <div class = "small-2 columns">
-              <label for="new-appointment-name" class="text">Appointment Time:</label>
-             </div>
-             <div class = "small-2 columns">
-              <input class="form-input" type="text" id="new-appointment-name" name="new-appointment-name" placeholder="Ex: 12:30:00">
-             </div>
+          <div class="modal-appt-info">
+            <label for="appointment-titl" class="text">Appointment Title:</label>
+            <input class="form-input" type="text" id="update-appointment-title" value="{{appointment.title}}"/><br>
           </div>
-          <div class = "row apt-time-cont">
-             <div class = "small-6 columns">
-              <label for="new-appointment-title" class="text">Title:</label>
-             </div>
-             <div class = "small-6 columns">
-              <input class="form-input" type="text" id="new-appointment-title" name="new-appointment-title" placeholder="Ex: Name/Phone Number">
-             </div>
+          <div class="modal-appt-info">
+            <label for="new-appointment-day" class="text">Appointment Day:</label>
+            <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
           </div>
-          <div class = "row apt-time-cont">
-             <div class = "small-6 columns">
-              <label for="new-patient-patient_id" class="text">Patient ID:</label>
-             </div>
-             <div class = "small-6 columns">
-              <input class="form-input" type="number" id="new-patient-patient_id" name="new-patient-patient_id" placeholder="Ex: 2"> 
-             </div>
+          <div class="modal-appt-info">
+            <label for="new-appointment-day" class="text">Appointment Time:</label>
+            <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-primary sub" id="new-appointment">Submit Appointment</button>
+          <div class="modal-appt-info">
+            <label for="appointment-patient_id" class="text">Patient_id:</label>
+            <input class="form-input" type="text" id="update-appointment-patient_id" value="{{appointment.patient_id}}"><br>
           </div>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="update-button" data-id="{{appt.id}}">New Appointment</button>
       </div>
     </div>
   </div>
