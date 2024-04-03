@@ -1,4 +1,6 @@
 .patients-list {
+    display: flex;
+    flex-flow: row wrap;
     border: 1px solid white;
     border-radius: 20px;
     backdrop-filter: blur(20px);
@@ -8,8 +10,6 @@
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
     width: max-content;
     padding-left: 0;
     padding-right: 0;
@@ -31,4 +31,8 @@
 
 .patients-cont-big {
     padding: 0px;
+}
+
+.patient-info {
+    margin: 30px;
 }

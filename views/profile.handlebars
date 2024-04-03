@@ -2,8 +2,36 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-<div>
-<section class="doctor-info">
+<div class="container text-white">
+  <div class="col">
+    <div class="row doctor">
+      <div class="row mb-5">
+        <h1 class="welcome">Welcome,</h1><br/>
+        <h2>Dr. {{name}}</h2>
+      </div>
+      <div class="row">
+        <div class="current col col-10">
+          <h4 class="current-text">Current Patients:</h4>
+        </div>
+        <div class="add-btton col col-2">
+          <button class="btn btn-primary add-patient-btn" data-bs-toggle="modal" data-bs-target="#myModal">Add Patient</button>
+        </div>
+      </div>
+
+
+      <div class="row patients-cont-big">
+        <div class="patients-list">
+            {{#each patients}}
+            {{> patient-details}}
+            {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- 
+<section class="doctor-infoc container">
     <h1 class="text-light text-center fw-bold">Dr. {{name}}</h1>
     <div class="text-center mt-5 m-5">
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Add Patient</button>
