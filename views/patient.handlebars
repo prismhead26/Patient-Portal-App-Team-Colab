@@ -4,28 +4,40 @@
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous"
 />
+<link rel="stylesheet" href="/css/patient.css" />
 
-<div>
-<div class="text-center text-light">
-  <h2>{{patient.name}}</h2>
-  <p>DOB: {{patient.birthday}}</p>
-  <p>Address: {{patient.address}}</p>
-  <p>Phone number: {{patient.phone}}</p>
-  <p>Unique ID: {{patient.id}}</p>
-
-  <p>
-    <button
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#myModal"
-    >Update Patient</button>
-    <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
-    <button
-      class="btn btn-primary"
-      id="delete-button"
-      data-id="{{patient.id}}"
-    >Delete Patient</button>
-  </p>
+<div class="container">
+  <div class="row text-center text-light">
+    <div class="col patient-name-container">
+      <div class="row">
+        <h1 class="patient-name">{{patient.name}}</h1>
+      </div>
+    </div>
+    <div class="col patient-info-container">
+      <div class="row">
+        <h2 class="patient-info-title">Patient Information</h2>
+      </div>
+      <div class="row patient-info">
+        <p><u>DOB</u>: {{patient.birthday}}</p>
+        <p><u>Address</u>: {{patient.address}}</p>
+        <p><u>Phone number</u>: {{patient.phone}}</p>
+        <p><u>Unique ID</u>: {{patient.id}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Update Patient</button>
+    </div>
+    <div class="col">
+      <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" id="delete-button" data-id="{{patient.id}}">Delete Patient</button>
+    </div>
+    <div class="patient-actions">
+    </div>
+  </div>
 </div>
 
 <div class="modal fade" id="myModal">

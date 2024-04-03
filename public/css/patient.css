@@ -1,0 +1,47 @@
+
+p {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.patient-info-container {
+    position: relative;
+    right: 1em;
+    margin-bottom: 2em;
+    padding-top: .8em;
+    width: 400px;
+}
+
+.border {
+    position: relative;
+    
+    width: 2px;
+    height: 400px;
+}
+
+.patient-name {
+    width: 500px;
+    text-align: start;
+    font-size: 60px;
+}
+
+.patient-info-title {
+    text-align: start;
+    font-size: 45px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    padding-bottom: 10px;
+}
+
+.patient-info {
+    font-size: 18px;
+    display: flex;
+    text-align: start;
+    padding: 1.5em 0 .5em 0;
+    padding-left: 1.5em;
+    margin-top: 1em;
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
