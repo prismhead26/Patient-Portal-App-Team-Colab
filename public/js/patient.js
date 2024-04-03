@@ -32,7 +32,7 @@ const upButtonHandler = async (event) => {
 
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    console.log("the id is: " + id);
+
     const response = await fetch(`/api/patients/${id}`, {
       method: "PUT",
       body: JSON.stringify({ name, address, phone, birthday }),
@@ -51,6 +51,32 @@ const upButtonHandler = async (event) => {
   }
 };
 
+const addNote = async (event) => {
+  event.preventDefault();
+  const body = document.querySelector("#new-note").value;
+
+  if (event.target.hasAttribute("data-id")) {
+    const patient_id = event.target.getAttribute("data-id");
+
+    const response = await fetch("/api/notes", {
+      method: "POST",
+      body: JSON.stringify({ body, patient_id }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      console.log(response);
+      document.location.reload(`/api/patients/${patient_id}`);
+    } else {
+      let myModal = new bootstrap.Modal(
+        document.getElementById("errorModal"),
+        {}
+      );
+      myModal.show();
+    }
+  }
+};
+
 document
   .querySelector("#delete-button")
   .addEventListener("click", delButtonHandler);
@@ -58,3 +84,5 @@ document
 document
   .querySelector("#update-button")
   .addEventListener("click", upButtonHandler);
+
+document.querySelector("#addNote").addEventListener("click", addNote);
