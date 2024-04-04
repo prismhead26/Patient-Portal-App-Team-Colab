@@ -61,7 +61,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const patientData = await Patient.findByPk(req.params.id, {
       include: {
@@ -77,6 +77,7 @@ router.get("/:id", async (req, res) => {
     res.render("patient", {
       patient,
       noteData,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);

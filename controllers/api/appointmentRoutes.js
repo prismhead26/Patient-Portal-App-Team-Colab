@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const { Appointment, Patient, Doctor } = require("../../models");
 const withAuth = require("../../utils/auth");
-const dayjs = require('dayjs')
+const dayjs = require("dayjs");
 
 // Create a appointment
 router.post("/", withAuth, async (req, res) => {
   try {
     const appointmentData = await Appointment.create({
-        ...req.body,
-        time: dayjs(req.body.time).format('YYYY-MM-DDTHH:mm:ss'),
-        doctor_id: req.session.user_id,
+      ...req.body,
+      time: dayjs(req.body.time).format("YYYY-MM-DDTHH:mm:ss"),
+      doctor_id: req.session.user_id,
     });
     res.status(200).json(appointmentData);
   } catch (error) {
@@ -26,7 +26,7 @@ router.put("/:id", withAuth, async (req, res) => {
     const appointmentData = await Appointment.update(
       {
         title: req.body.title,
-        time: dayjs(req.body.time).format('YYYY-MM-DDTHH:mm:ss'),
+        time: dayjs(req.body.time).format("YYYY-MM-DDTHH:mm:ss"),
         patient_id: req.body.patient_id,
       },
       {
@@ -51,7 +51,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     const appointmentData = await Appointment.destroy({
       where: {
         id: req.params.id,
-        doctor_id: req.session.user_id
+        doctor_id: req.session.user_id,
       },
     });
     res.status(200).json(appointmentData);
@@ -73,20 +73,20 @@ router.get("/:id", withAuth, async (req, res) => {
           model: Patient,
           attributes: ["id"],
         },
-      ]
-    })
+      ],
+    });
 
     const appointment = appointmentData.get({ plain: true });
     const patient = patientData.get({ plain: true });
 
     res.render("appointment", {
       appointment,
-      ...patient
+      ...patient,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 module.exports = router;

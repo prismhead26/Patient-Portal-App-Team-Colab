@@ -42,12 +42,10 @@
         {{#each noteData as |note|}}
           <div class="patient-cont d-flex flex-column">
             <div>
-              <h4 class="text-light">{{note.dataValues.body}}
-                <br />
-                <br />
-              </h4>
+              <h6 class="text-light d-inline">{{note.dataValues.body}}</h6>
             </div>
           </div>
+          <br />
         {{/each}}
       </div>
     {{/if}}
@@ -63,30 +61,34 @@
         </div>
         <div class="modal-body">
           <form action="">
-            <label for="patient-name">Name: </label>
+            <label for="patient-name">Name </label>
             <input
               type="text"
               id="update-patient-name"
+              name="patient-name"
               value="{{patient.name}}"
             /><br />
-            <label for="patient-birthday">Birthdate:
+            <label for="birthdate:">Birthdate:
             </label>
             <input
               type="text"
-              id="update-patient-birthday"
+              id="update-patient-birthday:"
+              name="birthdate"
               value="{{patient.birthday}}"
             /><br />
-            <label for="patient-address">Address:
+            <label for="address">Address:
             </label>
             <input
               type="text"
-              id="update-patient-address"
+              id="update-patient-address:"
+              name="address"
               value="{{patient.address}}"
             /><br />
-            <label for="patient-phone">Phone: </label>
+            <label for="phone:">Phone: </label>
             <input
               type="text"
               id="update-patient-phone"
+              name="phone"
               value="{{patient.phone}}"
             /><br />
           </form>
@@ -110,7 +112,6 @@
           <button class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <label for="note"></label>
           <textarea id="new-note" rows="20" cols="60"></textarea>
         </div>
         <div class="modal-footer">
