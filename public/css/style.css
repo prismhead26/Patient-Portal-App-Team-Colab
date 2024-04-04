@@ -101,6 +101,6 @@
 }
 
 
-::placeholder {
+.login-page_input::placeholder {
     color: white;
 }

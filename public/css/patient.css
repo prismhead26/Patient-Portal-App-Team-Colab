@@ -93,6 +93,10 @@ p {
     border-radius: 5px;
 }
 
+.update-patient-info {
+    width: 400px;
+}
+
 .text {
     margin-bottom: 2px;
     margin-top: 3px;

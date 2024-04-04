@@ -71,9 +71,9 @@
     border-radius: 10px;
 }
 
-::placeholder {
+/* ::placeholder {
     font-size: 15px;
     padding-left: 10px;
     padding-bottom: 2px;
-}
+} */
 
