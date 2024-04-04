@@ -5,11 +5,15 @@ const signupFormHandler = async (event) => {
   const dateEl = document.querySelector("#new-appointment-day").value.trim();
   const time = dateEl + "T" + timeEl;
   const title = document.querySelector("#new-appointment-title").value.trim();
-  const patient_id = document
+  let patient_id = document
     .querySelector("#new-patient-patient_id")
     .value.trim();
 
-  if (time && title && patient_id) {
+  if (patient_id === 'none') {
+    patient_id = null
+  }
+
+  if (time && title) {
     const response = await fetch(`api/appointments`, {
       method: "POST",
       body: JSON.stringify({ time, title, patient_id }),
