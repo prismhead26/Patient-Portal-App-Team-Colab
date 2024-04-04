@@ -123,3 +123,10 @@ p {
     justify-content: start;
     text-align: start;
 }
+
+.textarea {
+    width: 465px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
