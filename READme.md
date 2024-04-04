@@ -15,15 +15,21 @@
 # Overview
 
 ## The Challenge:
-You and your group will use everything you’ve learned over the past six modules to create a real-world front-end application that you’ll be able to showcase to potential employers.
+You and your group will create a real-world front-end application that solves a real-world problem.
 
 ## User Story
 
 ```md
-AS a person who 
-I WANT to be able 
-SO THAT I can 
-And to be able to
+As a REGISTERED DOCTOR or NEW DOCTOR ,
+
+	I want to set-up  and/or view my online-client management process,
+	I want to manage  my patient’s  medical information,
+	I want to add, update and delete patients,
+	I want to add notes to my patients,
+	I  want to view my daily  schedule and appointments,
+	I want to add, update and delete appointments,
+
+	So I can feel more in control and improve the medical care professional to patient communication for a better overall experience and health.
 ```
 
 ## Acceptance Criteria
@@ -57,7 +63,15 @@ And to be able to
 
 * Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 ```
+
 ## Application Info:
+```md
+With illnesses on the rise and the recent COVID-19 crisis,  website driven  healthcare systems have made it easier for patients and medical care professionals  to communicate better through the web.
+Therefore, we’ve created a patient portal application!
+
+Our (Patient-Portal)  application allows medical care professionals to manage patient health  by tracking  and viewing  their patients logs. As well as the ability to schedule an create appointments via npm calendar package.  And lastly the  user can also add new patients and add personalized notes.
+
+```
 
 ## Installation Instructions:
 Step 1: Clone repository.
@@ -71,19 +85,17 @@ Step 4: Nodemon is recommended in order to refresh and see updated notes data.
 ## Usage Instructions
 Step 1: In order to run the application locally, MySQL must be installed.
 <br>
-Step 2: Connect to the server using MySQL in the same directory as the code.
+Step 2: Open VsCode(preferred) or another source-code editor if not already running.
 <br>
-Step 3: Source the Schema and Seeds files for the database.
+Step 3: Open integrated terminal once in the main folder.
 <br>
-Step 4: Open VsCode(preferred) or another source-code editor if not already running.
+Step 4: "run npm i" / "sudo npm i" in the terminal to install the required dependencies.
 <br>
-Step 5: Open integrated terminal once in the main folder.
+Step 5: Source the Schema and Seeds files for the database by running "npm run seeds".
 <br>
-Step 6: "run npm i" / "sudo npm i" in the terminal to install the required dependencies.
+Step 6: Now to run the application, Enter "nodemon index.js" or "npm start" and "node server.js" if you don't have npm nodemon.
 <br>
-Step 7: Now to run the application, Enter "nodemon index.js" or "npm start" and "node index.js" if you don't have npm nodemon.
-<br>
-Step 8: After the "Connection Successful!" appears in the console, the application will proceed to the next stage.
+Step 7: After the "Patient Portal Listening on port..." appears in the console, open the local host URL that's displayed in the console.
 
 
 
@@ -95,21 +107,28 @@ For testing and debugging, the application logs requests and errors in the conso
 [Solution URL Link to Live Application:]()
 
 ## Screenshots:
-![alt text](/assets/images)
+![alt text](./public/images/screenshot.png)
 <br>
 
-![alt text](/assets/images)
 
 ## Built With
-- HTML & CSS
 - Dynamic JavaScript
+- MVC (Model View Controller)
+- Bootstrap & Icons
+- Handlebars
+- fullCalendar.js
+- Day.js
+- Express & express-session
+- Sequelize & mysql2
+- bcrypt
 - License Badge: [Shields.io](https://shields.io/)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 
 ## What We Learned
-1. How to build 
-2. 
-3. Team communication skills: 
+1. How to build a web application that accesses the MySQL database and allows the user to view and manipulate data all while following the MVC guidelines.
+2. How to structure files and create the proper routes in connection with data, displaying via Handlebars, and user inputs.
+3. Team communication skills:  -Being clear about the tasks so our team knows what to do.
+                                -Having a clear messaging culture to build team communication habtis and to inprove production.
 
 ## License
 
