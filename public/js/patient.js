@@ -1,7 +1,7 @@
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    console.log(id);
+
     const response = await fetch(`/api/patients/${id}`, {
       method: "DELETE",
     });
@@ -19,7 +19,7 @@ const delButtonHandler = async (event) => {
 
 const upButtonHandler = async (event) => {
   event.preventDefault();
-  console.log("button clicked");
+
   const name = document.querySelector("#update-patient-name").value.trim();
   const birthday = document
     .querySelector("#update-patient-birthday")
@@ -28,7 +28,6 @@ const upButtonHandler = async (event) => {
     .querySelector("#update-patient-address")
     .value.trim();
   const phone = document.querySelector("#update-patient-phone").value.trim();
-  console.log(name, address, phone, birthday);
 
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -38,7 +37,7 @@ const upButtonHandler = async (event) => {
       body: JSON.stringify({ name, address, phone, birthday }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log("the response is: " + response);
+
     if (response.ok) {
       document.location.replace("/profile");
     } else {
@@ -65,7 +64,6 @@ const addNote = async (event) => {
     });
 
     if (response.ok) {
-      console.log(response);
       document.location.reload(`/api/patients/${patient_id}`);
     } else {
       let myModal = new bootstrap.Modal(
