@@ -64,32 +64,14 @@
           </div>
           <div class="modal-appt-info">
             <label for="appointment-patient_id" class="text">Patient_id:</label>
-            <input class="form-input" type="text" id="update-appointment-patient_id" value="{{appointment.patient_id}}"><br>
+            <select class="form-select" id="update-appointment-patient_id">
+              <option selected>Choose...</option>
+                {{#each patients}}
+                <option value="{{id}}">{{id}}</option>
+                {{/each}}
+              <option>None</option><br />
+            </select>
           </div>
-<<<<<<< HEAD
-
-          {{!-- OLD STRUCTURE NEW OPTION TAGS --}}
-        <form action="">
-          <label for="appointment-title">title: </label>
-          <input
-            type="text"
-            id="update-appointment-title"
-            value="{{appointment.title}}"
-          /><br />
-          <label for="new-appointment-day">Appointment day:</label>
-          <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
-          <label for="new-appointment-time">Appointment Time:</label>
-          <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
-          <label for="appointment-patient_id">Patient_id:
-          </label>
-          <select class="form-select" id="new-appointment-patient_id">
-          <option selected>Choose...</option>
-          {{#each patients}}
-          <option value="{{id}}">{{id}}</option>
-          {{/each}}
-          <option>None</option><br />
-=======
->>>>>>> 4ea792f (fixing bugs that would prevent user from submitting changes or updating patient info/ appointment info)
         </form>
       </div>
       <div class="modal-footer">
