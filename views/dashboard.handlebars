@@ -32,22 +32,22 @@
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form action="" class="form">
+        <form class="form">
           <div class="modal-appt-info">
-            <label id"#new-appointment-title" for="appointment-title" class="text">Appointment Title:</label>
-            <input class="form-input" type="text" id="new-appointment-title" value="{{appointment.title}}"/><br>
+            <label for="new-appointment-title" class="text">Appointment Title:</label>
+            <input class="form-input" type="text" id="new-appointment-title" placeholder="Title"><br>
           </div>
           <div class="modal-appt-info">
             <label for="new-appointment-day" class="text">Appointment Day:</label>
             <input class="form-input" type="date" id="new-appointment-day" name="new-appointment-day"><br>
           </div>
           <div class="modal-appt-info">
-            <label for="new-appointment-day" class="text">Appointment Time:</label>
+            <label for="new-appointment-time" class="text">Appointment Time:</label>
             <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
           </div>
           <div class="modal-appt-info">
-            <label for="appointment-patient_id" class="text">Patient_id:</label>
-            <select class="form-select" id="new-patient-patient_id" required>
+            <label for="new-appointment-patient_id" class="text">Patient_id:</label>
+            <select class="form-select" id="new-appointment-patient_id" required="true">
               <option selected>Choose...</option>
                 {{#each patients as |patient|}}
                 <option value="{{id}}">{{id}}</option>

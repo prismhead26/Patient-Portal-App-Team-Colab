@@ -13,19 +13,17 @@
       <div class="row">
         <h1 class="patient-name">{{patient.name}}</h1>
       </div>
-      <h3 class="text-light text-center list-title p-0 notes-title">Notes</h3>
+      <div class="d-flex text-start mb-0">
+        <h3 class="text-light text-center list-title">Notes</h3>
+      </div>
       <div class="row notes-container">
-        <section>
+        <section class="notes-section">
           {{#if noteData.length}}
-            <div class="container notes-sub-cont mt-5 mb-4">
+            <div class="container p-0">
               {{#each noteData as |note|}}
                 <div class="patient-cont d-flex flex-column">
-                  <div>
-                    <h3>{{note.dataValues.body}}
-                      <i
-                        class="bi bi-trash delete-note"
-                        data-id="{{note.dataValues.id}}"
-                      ></i></h3>
+                  <div class="physical-note">- {{note.dataValues.body}}
+                    <i class="bi bi-trash delete-note icon" data-id="{{note.dataValues.id}} "></i>
                   </div>
                 </div>
                 <br />
@@ -84,41 +82,27 @@
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <form action="">
-          <label for="patient-name">Name: </label>
-          <input
-            type="text"
-            id="update-patient-name"
-            value="{{patient.name}}"
-          /><br />
-          <label for="patient-birthday">Birthdate:
-          </label>
-          <input
-            type="text"
-            id="update-patient-birthday"
-            value="{{patient.birthday}}"
-          /><br />
-          <label for="patient-address">Address:
-          </label>
-          <input
-            type="text"
-            id="update-patient-address"
-            value="{{patient.address}}"
-          /><br />
-          <label for="patient-phone">Phone: </label>
-          <input
-            type="text"
-            id="update-patient-phone"
-            value="{{patient.phone}}"
-          /><br />
+        <form action="" class="form">
+          <div class="update-patient-info">
+            <label for="patient-name" class="text">Name:</label>
+            <input type="text" id="update-patient-name" class="form-input" value="{{patient.name}}"/><br />
+          </div>
+          <div class="update-patient-info">
+            <label for="patient-birthday" class="text">Birthdate:</label>
+            <input type="text" id="update-patient-birthday" class="form-input" value="{{patient.birthday}}"/><br />
+          </div>
+          <div class="update-patient-info">
+            <label for="patient-address" class="text">Address:</label>
+            <input type="text" id="update-patient-address" class="form-input" value="{{patient.address}}"/><br />           
+          </div>
+          <div class="update-patient-info">
+            <label for="patient-phone" class="text">Phone:</label>
+            <input type="text" id="update-patient-phone" class="form-input" value="{{patient.phone}}"/><br />
+          </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button
-          class="btn btn-primary"
-          id="update-button"
-          data-id="{{patient.id}}"
-        >Submit Patient</button>
+        <button class="btn btn-primary" id="update-button" data-id="{{patient.id}}">Submit Patient</button>
       </div>
     </div>
   </div>
@@ -132,7 +116,7 @@
         <button class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-        <textarea id="new-note" rows="20" cols="60"></textarea>
+        <textarea id="new-note" rows="10" cols="50" class="textarea"></textarea>
       </div>
       <div class="modal-footer">
         <button

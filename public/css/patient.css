@@ -5,39 +5,6 @@ p {
     padding-right: 0;
 }
 
-.notes-container  {
-    width: 400px;
-    min-height: 100px;
-    height: auto;
-    display: flex;
-    position: relative;
-    left: .5em;
-    padding: 0;
-    border: 2px solid gray;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-} 
-
-.notes-sub-cont {
-    display: flex;
-    justify-content: start;
-}
- 
-.notes-title {
-    display: flex;
-    justify-content: start;
-    text-align: start;
-}
-
-
-.patient-info-container {
-    position: relative;
-    right: 1em;
-    margin-bottom: 2em;
-    padding-top: .8em;
-    width: 400px;
-}
-
 .border {
     position: relative;
     width: 2px;
@@ -51,26 +18,7 @@ p {
     margin-bottom: 0;
 }
 
-.patient-info-title {
-    text-align: start;
-    font-size: 45px;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-    padding-bottom: 10px;
-}
-
-.patient-info {
-    font-size: 18px;
-    display: flex;
-    text-align: start;
-    padding: 1.5em 0 .5em 0;
-    padding-left: 1.5em;
-    margin-top: 1.4em;
-    border: 2px solid gray;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-}
-.modal-patient-info {
+.update-patient-info {
     text-decoration: none;
     font-size: 20px;
     text-align: center;
@@ -86,11 +34,15 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .form-input{
+    width: 220px;
     border: 1px solid gray;
     border-radius: 5px;
+    font-size: 18px;
+    padding-left: 5px;
 }
 
 .text {
@@ -102,9 +54,101 @@ p {
     border-radius: 10px;
 }
 
+.patient-label{
+    width: auto;
+    display: flex;
+}
+
+.patient-info-container {
+    padding-left: .5em;
+    position: relative;
+    right: 1em;
+    margin-bottom: 1.7em;
+    padding-top: .8em;
+    width: 400px;
+}
+
+.patient-info-title {
+    text-align: start;
+    font-size: 45px;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    padding-bottom: 10px;
+}
+
+.patient-info {
+    min-height: 325px;
+    font-size: 18px;
+    display: flex;
+    text-align: start;
+    padding: 2em 0 1.5em 0;
+    padding-left: 1.5em;
+    margin-top: .5em;
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+.modal-patient-info {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
 ::placeholder {
     font-size: 15px;
     padding-left: 10px;
     padding-bottom: 2px;
 }
 
+.list-title {
+    margin-top: .5em;
+    margin-left: .5em;
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+.icon {
+    font-size: 17px;
+}
+
+
+.notes-container  {
+    margin-left: .5em;
+    width: 390px;
+    height: 277px;
+    display: flex;
+    position: relative;
+    left: .5em;
+    padding: 1em .5em 1em .5em;
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    overflow-y:auto;
+    scrollbar-width: thin;
+} 
+
+.notes-section {
+    padding: 0px;
+}
+
+.physical-note {
+    text-align: start;
+    vertical-align: top;
+    font-size: 20px;
+    align-items: start;
+}
+
+.notes-title {
+    display: flex;
+    justify-content: start;
+    text-align: start;
+    margin-top: .5em;
+}
+
+.textarea {
+    width: 465px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
