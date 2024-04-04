@@ -14,9 +14,12 @@ function createCalendar(data) {
 });
 }
 
-createCalendar(user['appointments'].map(obj => {
-return {
-title: obj.title,
-start: obj.time
+if (user['appointments'].length === 0 ) {
+} else {
+  createCalendar(user['appointments'].map(obj => {
+  return {
+  title: obj.title,
+  start: obj.time
+  }
+  }))
 }
-}))
