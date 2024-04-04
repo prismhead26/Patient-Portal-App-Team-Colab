@@ -5,90 +5,95 @@
   crossorigin="anonymous"
 />
 
-<div>
-  <div class="text-center text-light">
-    <h2>{{patient.name}}</h2>
-    <p>DOB: {{patient.birthday}}</p>
-    <p>Address: {{patient.address}}</p>
-    <p>Phone number: {{patient.phone}}</p>
-    <p>Unique ID: {{patient.id}}</p>
 
-    <p>
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#myModal"
-      >Update Patient</button>
-      <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#deleteModal"
-        data-id="{{patient.id}}"
-      >Delete Patient</button>
-      <button
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#noteModal"
-      >Add New Note</button>
-    </p>
+<link rel="stylesheet" href="/css/patient.css" />
 
-  </div>
-  <section>
-    {{#if noteData.length}}
-      <div class="container appointment-cont mt-5 mb-4">
-        <h3 class="text-light text-center list-title p-0">Notes</h3>
-
-        {{#each noteData as |note|}}
-          <div class="patient-cont d-flex flex-column">
-            <div>
-              <h6 class="text-light d-inline">{{note.dataValues.body}}</h6>
-            </div>
-          </div>
-          <br />
-        {{/each}}
+<div class="container">
+  <div class="row text-center text-light">
+    <div class="col patient-name-container">
+      <div class="row">
+        <h1 class="patient-name">{{patient.name}}</h1>
       </div>
-    {{/if}}
-  </section>
+      <h3 class="text-light text-center list-title p-0 notes-title">Notes</h3>
+      <div class="row notes-container">
+        <section>
+          {{#if noteData.length}}
+          <div class="container notes-sub-cont mt-5 mb-4">
+            {{#each noteData as |note|}}
+            <div class="patient-cont d-flex flex-column">
+              <div>
+                <h3>{{note.dataValues.body}}</h3>
+              </div>
+            </div>
+            <br />
+            {{/each}}
+            </div>
+            {{/if}}
+        </section>
+      </div>
+    </div>
+    <div class="col patient-info-container">
+      <div class="row">
+        <h2 class="patient-info-title">Patient Information</h2>
+      </div>
+      <div class="row patient-info">
+        <p><u>DOB</u>: {{patient.birthday}}</p>
+        <p><u>Address</u>: {{patient.address}}</p>
+        <p><u>Phone number</u>: {{patient.phone}}</p>
+        <p><u>Unique ID</u>: {{patient.id}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Update Patient</button>
+    </div>
+    <div class="col">
+      <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
+    </div>
+    <div class="col">
+      <button class="btn btn-danger" id="delete-button" data-id="{{patient.id}}">Delete Patient</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noteModal">New Note</button>
+    </div>
+  </div>
+</div>
+
 
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title fs-5" id="myModalLabel">Update Patient
-            Information</h5>
+          <h5 class="modal-title fs-5" id="myModalLabel">Update Patient Information</h5>
           <button class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <form action="">
-            <label for="patient-name">Name </label>
+            <label for="patient-name">Name: </label>
             <input
               type="text"
               id="update-patient-name"
-              name="patient-name"
               value="{{patient.name}}"
             /><br />
-            <label for="birthdate:">Birthdate:
+            <label for="patient-birthday">Birthdate:
             </label>
             <input
               type="text"
-              id="update-patient-birthday:"
-              name="birthdate"
+              id="update-patient-birthday"
               value="{{patient.birthday}}"
             /><br />
-            <label for="address">Address:
+            <label for="patient-address">Address:
             </label>
             <input
               type="text"
-              id="update-patient-address:"
-              name="address"
+              id="update-patient-address"
               value="{{patient.address}}"
             /><br />
-            <label for="phone:">Phone: </label>
+            <label for="patient-phone">Phone: </label>
             <input
               type="text"
               id="update-patient-phone"
-              name="phone"
               value="{{patient.phone}}"
             /><br />
           </form>
@@ -99,51 +104,6 @@
             id="update-button"
             data-id="{{patient.id}}"
           >Submit Patient</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="noteModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-5" id="myModalLabel">Add Note</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <textarea id="new-note" rows="20" cols="60"></textarea>
-        </div>
-        <div class="modal-footer">
-          <button
-            class="btn btn-primary"
-            id="addNote"
-            data-id="{{patient.id}}"
-          >Add Note</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="deleteModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-5" id="myModalLabel">Delete This Patient?</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >Go Back</button>
-          <button
-            class="btn btn-primary"
-            id="delete-button"
-            data-id="{{patient.id}}"
-          >Delete</button>
-
         </div>
       </div>
     </div>
@@ -161,20 +121,17 @@
         <div class="modal-header">
           <h5 class="modal-title" id="errorModalLabel">Unable to delete account.
             Please try again.</h5>
-
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >Close</button>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <div
     class="modal fade"
     id="updateModal"
@@ -194,13 +151,11 @@
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >Close</button>
-
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <script
