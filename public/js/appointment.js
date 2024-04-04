@@ -9,7 +9,7 @@ const upButtonHandler = async (event) => {
   const patient_id = document
     .querySelector("#update-appointment-patient_id")
     .value.trim();
-
+  
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
     const response = await fetch(`/api/appointments/${id}`, {

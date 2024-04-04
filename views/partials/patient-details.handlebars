@@ -1,5 +1,9 @@
-<section class="container d-flex flex-column align-items-center py-2">
-  <h5 class="text-light">Patient {{id}}:<a href="/api/patients/{{id}}" class="link-warning">
-      {{name}}</a></h5>
-  <p class="text-light">DOB: {{birthday}}</p>
+<link rel="stylesheet" href="/css/profile.css" />
+
+<section class="container">
+    <div class="patient-info">
+      <h5><a class="text-warning" href="/api/patients/{{id}}">{{name}} (Id:{{id}})</a></h5>
+      <p class="text-center">DOB: {{birthday}}</p>
+    </div>
 </section>
+

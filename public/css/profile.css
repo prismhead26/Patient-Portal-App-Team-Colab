@@ -1,0 +1,79 @@
+
+
+.patients-list {
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.container {
+    width: max-content;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.add-patient-btn {
+    position: relative;
+    left: 1.5em;
+    width: auto;
+    height: 35px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.current-text {
+    position: relative;
+    top: 5px;
+}
+
+.patients-cont-big {
+    padding: 0px;
+}
+
+.patient-info {
+    margin: 30px;
+}
+
+.patient-personal-info {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
+.modal-content {
+    border-radius: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-input{
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.text {
+    margin-bottom: 2px;
+    margin-top: 3px;
+}
+
+.sub {
+    border-radius: 10px;
+}
+
+::placeholder {
+    font-size: 15px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+}
+
