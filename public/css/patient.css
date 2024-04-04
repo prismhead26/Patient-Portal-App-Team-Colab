@@ -1,34 +1,8 @@
-
 p {
     width: auto;
     padding-left: 0;
     padding-right: 0;
 }
-
-.notes-container  {
-    width: 400px;
-    min-height: 100px;
-    height: auto;
-    display: flex;
-    position: relative;
-    left: .5em;
-    padding: 0;
-    border: 2px solid gray;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
-} 
-
-.notes-sub-cont {
-    display: flex;
-    justify-content: start;
-}
- 
-.notes-title {
-    display: flex;
-    justify-content: start;
-    text-align: start;
-}
-
 
 .patient-info-container {
     position: relative;
@@ -50,6 +24,48 @@ p {
     font-size: 60px;
     margin-bottom: 0;
 }
+
+.update-patient-info {
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    width: 55%;
+    margin-top: 10px;
+}
+
+.modal-content {
+    border-radius: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.form-input{
+    width: 220px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 18px;
+    padding-left: 5px;
+}
+
+.text {
+    margin-bottom: 2px;
+    margin-top: 3px;
+}
+
+.sub {
+    border-radius: 10px;
+}
+
+.patient-label{
+    width: auto;
+    display: flex;
+}
+
 
 .patient-info-title {
     text-align: start;
@@ -78,37 +94,32 @@ p {
     margin-top: 10px;
 }
 
-.modal-content {
-    border-radius: 20px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form-input{
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
-.update-patient-info {
-    width: 400px;
-}
-
-.text {
-    margin-bottom: 2px;
-    margin-top: 3px;
-}
-
-.sub {
-    border-radius: 10px;
-}
-
 ::placeholder {
     font-size: 15px;
     padding-left: 10px;
     padding-bottom: 2px;
 }
 
+.notes-container  {
+    width: 400px;
+    min-height: 100px;
+    height: auto;
+    display: flex;
+    position: relative;
+    left: .5em;
+    padding: 0;
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+} 
+
+.notes-sub-cont {
+    display: flex;
+    justify-content: start;
+}
+ 
+.notes-title {
+    display: flex;
+    justify-content: start;
+    text-align: start;
+}
