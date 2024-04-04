@@ -5,7 +5,6 @@
   crossorigin="anonymous"
 />
 
-
 <link rel="stylesheet" href="/css/patient.css" />
 
 <div class="container">
@@ -18,17 +17,21 @@
       <div class="row notes-container">
         <section>
           {{#if noteData.length}}
-          <div class="container notes-sub-cont mt-5 mb-4">
-            {{#each noteData as |note|}}
-            <div class="patient-cont d-flex flex-column">
-              <div>
-                <h3>{{note.dataValues.body}}</h3>
-              </div>
+            <div class="container notes-sub-cont mt-5 mb-4">
+              {{#each noteData as |note|}}
+                <div class="patient-cont d-flex flex-column">
+                  <div>
+                    <h3>{{note.dataValues.body}}
+                      <i
+                        class="bi bi-trash delete-note"
+                        data-id="{{note.dataValues.id}}"
+                      ></i></h3>
+                  </div>
+                </div>
+                <br />
+              {{/each}}
             </div>
-            <br />
-            {{/each}}
-            </div>
-            {{/if}}
+          {{/if}}
         </section>
       </div>
     </div>
@@ -46,136 +49,171 @@
   </div>
   <div class="row">
     <div class="col">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Update Patient</button>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#myModal"
+      >Update Patient</button>
     </div>
     <div class="col">
       <a href="/profile"><button class="btn btn-primary">Return to Profile</button></a>
     </div>
     <div class="col">
-      <button class="btn btn-danger" id="delete-button" data-id="{{patient.id}}">Delete Patient</button>
+      <button
+        class="btn btn-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#confirmDelete"
+      >Delete Patient</button>
     </div>
     <div class="col">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#noteModal">New Note</button>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#noteModal"
+      >New Note</button>
     </div>
   </div>
 </div>
 
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="myModalLabel">Update Patient
+          Information</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <label for="patient-name">Name: </label>
+          <input
+            type="text"
+            id="update-patient-name"
+            value="{{patient.name}}"
+          /><br />
+          <label for="patient-birthday">Birthdate:
+          </label>
+          <input
+            type="text"
+            id="update-patient-birthday"
+            value="{{patient.birthday}}"
+          /><br />
+          <label for="patient-address">Address:
+          </label>
+          <input
+            type="text"
+            id="update-patient-address"
+            value="{{patient.address}}"
+          /><br />
+          <label for="patient-phone">Phone: </label>
+          <input
+            type="text"
+            id="update-patient-phone"
+            value="{{patient.phone}}"
+          /><br />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-primary"
+          id="update-button"
+          data-id="{{patient.id}}"
+        >Submit Patient</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-5" id="myModalLabel">Update Patient Information</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form action="">
-            <label for="patient-name">Name: </label>
-            <input
-              type="text"
-              id="update-patient-name"
-              value="{{patient.name}}"
-            /><br />
-            <label for="patient-birthday">Birthdate:
-            </label>
-            <input
-              type="text"
-              id="update-patient-birthday"
-              value="{{patient.birthday}}"
-            /><br />
-            <label for="patient-address">Address:
-            </label>
-            <input
-              type="text"
-              id="update-patient-address"
-              value="{{patient.address}}"
-            /><br />
-            <label for="patient-phone">Phone: </label>
-            <input
-              type="text"
-              id="update-patient-phone"
-              value="{{patient.phone}}"
-            /><br />
-          </form>
-        </div>
+<div class="modal fade" id="noteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="myModalLabel">Add Note</h5>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <textarea id="new-note" rows="20" cols="60"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-primary"
+          id="addNote"
+          data-id="{{patient.id}}"
+        >Add Note</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="errorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Unable to delete account.
+          Please try again.</h5>
         <div class="modal-footer">
           <button
-            class="btn btn-primary"
-            id="update-button"
-            data-id="{{patient.id}}"
-          >Submit Patient</button>
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
         </div>
       </div>
     </div>
   </div>
 
+</div>
 
-  <div class="modal fade" id="noteModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fs-5" id="myModalLabel">Add Note</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <textarea id="new-note" rows="20" cols="60"></textarea>
-        </div>
+<div class="modal" id="updateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Unable to update account.
+          Please try again.</h5>
+
         <div class="modal-footer">
           <button
-            class="btn btn-primary"
-            id="addNote"
-            data-id="{{patient.id}}"
-          >Add Note</button>
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >Close</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-
-  <div
-    class="modal fade"
-    id="deleteModal"
-    tabindex="-1"
-    aria-labelledby="errorModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="errorModalLabel">Unable to delete account.
-            Please try again.</h5>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >Close</button>
-          </div>
-        </div>
+<div class="modal" id="confirmDelete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Patient?</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
-    </div>
-  </div>
-  <div
-    class="modal fade"
-    id="updateModal"
-    tabindex="-1"
-    aria-labelledby="errorModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="errorModalLabel">Unable to update account.
-            Please try again.</h5>
 
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >Close</button>
-          </div>
-        </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >Close</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="delete-button"
+          data-id="{{patient.id}}"
+        >Delete</button>
       </div>
     </div>
   </div>

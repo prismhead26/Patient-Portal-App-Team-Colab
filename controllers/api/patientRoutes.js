@@ -66,12 +66,12 @@ router.get("/:id", withAuth, async (req, res) => {
     const patientData = await Patient.findByPk(req.params.id, {
       include: {
         model: Note,
-        attributes: ["body"],
+        attributes: ["body", "id"],
       },
     });
 
     const noteData = patientData.notes;
-
+    console.log(noteData);
     const patient = patientData.get({ plain: true });
 
     res.render("patient", {

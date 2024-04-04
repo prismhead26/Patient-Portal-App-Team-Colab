@@ -75,6 +75,26 @@ const addNote = async (event) => {
   }
 };
 
+const delNoteHandler = async (event) => {
+  console.log("delete");
+  if (event.target.hasAttribute("data-id")) {
+    const id = event.target.getAttribute("data-id");
+    console.log(id);
+    const response = await fetch(`/api/notes/${id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      let myModal = new bootstrap.Modal(
+        document.getElementById("deleteModal"),
+        {}
+      );
+      myModal.show();
+    }
+  }
+};
+
 document
   .querySelector("#delete-button")
   .addEventListener("click", delButtonHandler);
@@ -84,3 +104,7 @@ document
   .addEventListener("click", upButtonHandler);
 
 document.querySelector("#addNote").addEventListener("click", addNote);
+
+document
+  .querySelectorAll(".delete-note")
+  .forEach((el) => el.addEventListener("click", delNoteHandler));
