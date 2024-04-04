@@ -62,18 +62,8 @@
     color: #fff;
     font-weight: 500;
     pointer-events: none;
-    transition: .5s;
+
 }
-
-
-/* .input-box input:focus~label {
-    top: -5px;
-} */
-
-/* .input-box input:valid~label {
-    top: -5px;
-} */
-
 
 .input-box input {
     width: 100%;
@@ -108,4 +98,9 @@
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
+}
+
+
+::placeholder {
+    color: white;
 }
