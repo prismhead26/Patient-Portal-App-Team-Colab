@@ -21,13 +21,14 @@
             {{#each noteData as |note|}}
             <div class="patient-cont d-flex flex-column">
               <div>
-                <h3><a href="/api/notes/{{id}}" class="link-warning">{{note.dataValues.body}}<br /></a></h3>
+                <h3>{{note.dataValues.body}}</h3>
               </div>
-          </div>
-        {{/each}}
-      </div>
-    {{/if}}
-  </section>
+            </div>
+            <br />
+            {{/each}}
+            </div>
+            {{/if}}
+        </section>
       </div>
     </div>
     <div class="col patient-info-container">
