@@ -26,7 +26,7 @@ const signupFormHandler = async (event) => {
       myModal.show();
     }
   }
-};
+;
 
 document
   .querySelector("#new-appointment")

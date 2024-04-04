@@ -66,6 +66,7 @@
             <label for="appointment-patient_id" class="text">Patient_id:</label>
             <input class="form-input" type="text" id="update-appointment-patient_id" value="{{appointment.patient_id}}"><br>
           </div>
+<<<<<<< HEAD
 
           {{!-- OLD STRUCTURE NEW OPTION TAGS --}}
         <form action="">
@@ -87,10 +88,12 @@
           <option value="{{id}}">{{id}}</option>
           {{/each}}
           <option>None</option><br />
+=======
+>>>>>>> 4ea792f (fixing bugs that would prevent user from submitting changes or updating patient info/ appointment info)
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" id="update-button" data-id="{{appt.id}}">Update Appointment</button>
+        <button class="btn btn-primary" id="update-button" data-id="{{appointment.id}}">Update Appointment</button>
       </div>
     </div>
   </div>
