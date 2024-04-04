@@ -76,10 +76,9 @@ const addNote = async (event) => {
 };
 
 const delNoteHandler = async (event) => {
-  console.log("delete");
+  event.preventDefault();
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
-    console.log(id);
     const response = await fetch(`/api/notes/${id}`, {
       method: "DELETE",
     });
