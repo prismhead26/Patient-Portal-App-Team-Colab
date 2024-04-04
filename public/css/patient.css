@@ -6,20 +6,26 @@ p {
 }
 
 .notes-container  {
+    width: 400px;
+    min-height: 100px;
+    height: auto;
     display: flex;
-    justify-content: start;
+    position: relative;
+    left: .5em;
     padding: 0;
+    border: 2px solid gray;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
 } 
 
 .notes-sub-cont {
-    margin-top: 1px 1px 1px 1px;
-    padding: 0 0 0 5px;
+    display: flex;
+    justify-content: start;
 }
  
 .notes-title {
-    position: relative;
-    bottom: 1em;
     display: flex;
+    justify-content: start;
     text-align: start;
 }
 
@@ -59,7 +65,7 @@ p {
     text-align: start;
     padding: 1.5em 0 .5em 0;
     padding-left: 1.5em;
-    margin-top: 1em;
+    margin-top: 1.4em;
     border: 2px solid gray;
     border-radius: 20px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);

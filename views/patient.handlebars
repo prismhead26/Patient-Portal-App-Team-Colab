@@ -13,15 +13,15 @@
       <div class="row">
         <h1 class="patient-name">{{patient.name}}</h1>
       </div>
+      <h3 class="text-light text-center list-title p-0 notes-title">Notes</h3>
       <div class="row notes-container">
         <section>
           {{#if noteData.length}}
           <div class="container notes-sub-cont mt-5 mb-4">
-            <h3 class="text-light text-center list-title p-0 notes-title">Notes</h3>
             {{#each noteData as |note|}}
             <div class="patient-cont d-flex flex-column">
               <div>
-                <h4><a href="/api/notes/{{id}}" class="link-warning">{{note.dataValues.body}}<br /></a></h4>
+                <h3><a href="/api/notes/{{id}}" class="link-warning">{{note.dataValues.body}}<br /></a></h3>
               </div>
           </div>
         {{/each}}
