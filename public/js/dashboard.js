@@ -6,7 +6,7 @@ const signupFormHandler = async (event) => {
   const time = dateEl + "T" + timeEl;
   const title = document.querySelector("#new-appointment-title").value.trim();
   let patient_id = document
-    .querySelector("#new-patient-patient_id")
+    .querySelector("#new-appointment-patient_id")
     .value.trim();
 
   if (patient_id === 'none') {
