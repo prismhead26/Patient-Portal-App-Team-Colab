@@ -5,6 +5,25 @@ p {
     padding-right: 0;
 }
 
+.notes-container  {
+    display: flex;
+    justify-content: start;
+    padding: 0;
+} 
+
+.notes-sub-cont {
+    margin-top: 1px 1px 1px 1px;
+    padding: 0 0 0 5px;
+}
+ 
+.notes-title {
+    position: relative;
+    bottom: 1em;
+    display: flex;
+    text-align: start;
+}
+
+
 .patient-info-container {
     position: relative;
     right: 1em;
@@ -23,6 +42,7 @@ p {
     width: 500px;
     text-align: start;
     font-size: 60px;
+    margin-bottom: 0;
 }
 
 .patient-info-title {
