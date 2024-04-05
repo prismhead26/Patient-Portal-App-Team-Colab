@@ -19,10 +19,16 @@
         <h2 class="appt-info-title">Appointment Information</h2>
       </div>
       <div class="row appt-info">
+        {{#if appointment.patient.birthday}}
         <p><u>DOB</u>: {{appointment.patient.birthday}}</p>
+        {{/if}}
         <p><u>Appointment time</u>: {{formatDate appointment.time}}</p>
+        {{#if appointment.patient.phone}}
         <p><u>Phone number</u>: {{appointment.patient.phone}}</p>
+        {{/if}}
+        {{#if appointment.patient_id}}
         <p><u>Patient ID Number</u>: {{appointment.patient_id}}</p>
+        {{/if}}
       </div>
     </div>
   </div>
@@ -86,6 +92,5 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"
 ></script>
-
 
 <script src="/js/appointment.js"></script>
