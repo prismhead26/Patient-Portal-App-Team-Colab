@@ -21,6 +21,9 @@ const signupFormHandler = async (event) => {
         {}
       );
       myModal.show();
+      setTimeout(function(){
+        location.reload()
+      }, 5000)
     }
   }
 };
