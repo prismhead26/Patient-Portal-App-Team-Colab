@@ -65,7 +65,14 @@ router.delete("/:id", withAuth, async (req, res) => {
 
 router.get("/:id", withAuth, async (req, res) => {
   try {
-    const appointmentData = await Appointment.findByPk(req.params.id);
+    const appointmentData = await Appointment.findByPk(req.params.id, {
+      include: [
+        {
+          model: Patient,
+          attributes: ["id", "phone", "birthday"],
+        },
+      ],
+    });
 
     const patientData = await Doctor.findByPk(req.session.user_id, {
       include: [

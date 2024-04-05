@@ -19,9 +19,9 @@
         <h2 class="appt-info-title">Appointment Information</h2>
       </div>
       <div class="row appt-info">
-        <p><u>DOB</u>: {{patient.birthday}}</p>
+        <p><u>DOB</u>: {{appointment.patient.birthday}}</p>
         <p><u>Appointment time</u>: {{formatDate appointment.time}}</p>
-        <p><u>Phone number</u>: {{patient.phone}}</p>
+        <p><u>Phone number</u>: {{appointment.patient.phone}}</p>
         <p><u>Patient ID Number</u>: {{appointment.patient_id}}</p>
       </div>
     </div>
@@ -86,5 +86,6 @@
   integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
   crossorigin="anonymous"
 ></script>
+
 
 <script src="/js/appointment.js"></script>

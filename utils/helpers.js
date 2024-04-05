@@ -9,4 +9,7 @@ module.exports = {
     formatDate: (data) => {
         return dayjs(data).format('LLLL');
     },
+    json: function(obj) {
+        return JSON.stringify(obj)
+    }
 }
