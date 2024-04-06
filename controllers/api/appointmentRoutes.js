@@ -69,7 +69,7 @@ router.get("/:id", withAuth, async (req, res) => {
       include: [
         {
           model: Patient,
-          attributes: ["id", "phone", "birthday"],
+          attributes: ["id", "phone", "birthday", "name"],
         },
       ],
     });
@@ -78,7 +78,7 @@ router.get("/:id", withAuth, async (req, res) => {
       include: [
         {
           model: Patient,
-          attributes: ["id"],
+          attributes: ["id", "name"],
         },
       ],
     });

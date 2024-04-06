@@ -5,6 +5,11 @@
   crossorigin="anonymous" />
   
 <link rel="stylesheet" href="/css/appointment.css" />
+<style>
+      body {
+      background: #6F4E37 !important;
+    }
+</style>
 
 {{!-- NEW --}}
 <div class="container">
@@ -19,15 +24,15 @@
         <h2 class="appt-info-title">Appointment Information</h2>
       </div>
       <div class="row appt-info">
+        {{#if appointment.patient.name}}
+          <p><u>Patient Name</u>: {{appointment.patient.name}}</p>
+        {{/if}}
         {{#if appointment.patient.birthday}}
-        <p><u>DOB</u>: {{appointment.patient.birthday}}</p>
+          <p><u>DOB</u>: {{appointment.patient.birthday}}</p>
         {{/if}}
-        <p><u>Appointment time</u>: {{formatDate appointment.time}}</p>
+          <p><u>Appointment time</u>: {{formatDate appointment.time}}</p>
         {{#if appointment.patient.phone}}
-        <p><u>Phone number</u>: {{appointment.patient.phone}}</p>
-        {{/if}}
-        {{#if appointment.patient_id}}
-        <p><u>Patient ID Number</u>: {{appointment.patient_id}}</p>
+          <p><u>Phone number</u>: {{appointment.patient.phone}}</p>
         {{/if}}
       </div>
     </div>
@@ -69,11 +74,11 @@
             <input class="form-input" type="time" id="new-appointment-time" name="new-appointment-time"><br>
           </div>
           <div class="modal-appt-info">
-            <label for="appointment-patient_id" class="text">Patient_id:</label>
+            <label for="appointment-patient_id" class="text">Patient Name:</label>
             <select class="form-select" id="update-appointment-patient_id">
               <option selected>Choose...</option>
                 {{#each patients}}
-                <option value="{{id}}">{{id}}</option>
+                <option value="{{id}}">{{name}}</option>
                 {{/each}}
                 <option value="none">None</option>
             </select>

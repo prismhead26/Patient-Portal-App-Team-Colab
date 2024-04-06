@@ -35,7 +35,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
       include: [
         {
           model: Patient,
-          attributes: ["id"],
+          attributes: ["id", "name"],
         },
         {
           model: Appointment,
