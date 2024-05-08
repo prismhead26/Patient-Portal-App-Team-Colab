@@ -104,7 +104,7 @@ For testing and debugging, the application logs requests and errors in the conso
 
 
 ## Solution URL:
-[Solution URL Link to Live Application:]()
+[Solution URL Link to Live Application:](https://tracknheal-be5b35216eb1.herokuapp.com/)
 
 ## Screenshots:
 ![alt text](./public/images/screenshot.png)
